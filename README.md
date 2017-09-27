@@ -1,2 +1,3 @@
-# ftc-the-dream-team
-Team Repository for FTC The Dream Team 12684
+# Tectonic Gears #12684
+
+Repository for Tectonic Gears for the 2017-2018 FTC Relic Recovery challenge.
