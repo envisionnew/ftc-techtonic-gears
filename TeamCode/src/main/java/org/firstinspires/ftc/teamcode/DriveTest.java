@@ -13,10 +13,6 @@ import com.qualcomm.robotcore.util.Range;
 @TeleOp(name = "TeleOp: Drive")
 public class DriveTest extends OpMode{
     DriveTrain drive = new DriveTrain();
-    DcMotor rightFront;
-    DcMotor leftFront;
-    DcMotor rightBack;
-    DcMotor leftBack;
     double speed = 0.0d;
     double offset = 0.0d;
     @Override
@@ -24,6 +20,8 @@ public class DriveTest extends OpMode{
         drive.init(hardwareMap);
         telemetry.addData("", "Press Start");
         telemetry.update();
+        drive.offset = 0.0d;
+        drive.speed = 0.0d;
     }
     @Override
     public void init_loop(){
@@ -34,19 +32,12 @@ public class DriveTest extends OpMode{
     }
     @Override
     public void loop() {
-        leftFront = drive.leftFront;
-        rightFront = drive.rightFront;
-        leftBack = drive.leftBack;
-        rightBack = drive.rightBack;
 
         speed = -gamepad1.right_stick_y;
         speed = Range.clip(speed, -0.5, 0.5);
         offset = gamepad1.left_stick_x/2;
 
-        leftFront.setPower(speed-offset);
-        rightFront.setPower(speed+offset);
-        leftBack.setPower(speed-offset);
-        rightBack.setPower(speed+offset);
+        drive.move(speed, offset);
 
         telemetry.addData("Power",speed);
         telemetry.addData("Offset",offset);

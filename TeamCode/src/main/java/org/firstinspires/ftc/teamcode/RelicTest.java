@@ -41,6 +41,7 @@ public class RelicTest extends OpMode{
 
         slide = arm.relicSlide;
         arm1 = arm.relicArm1;
+
         arm2 = arm.relicArm2;
         claw = arm.relicClaw;
 
