@@ -7,12 +7,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-
 public class DriveTrain {
-    public DcMotor leftFront   = null;
-    public DcMotor rightFront   = null;
-    public DcMotor  leftBack  = null;
-    public DcMotor  rightBack  = null;
+    DcMotor leftFront   = null;
+    DcMotor rightFront   = null;
+    DcMotor  leftBack  = null;
+    DcMotor  rightBack  = null;
+    double speed;
+    double offset;
 
     HardwareMap hwMap = null;
     private ElapsedTime period  = new ElapsedTime();
@@ -38,4 +39,19 @@ public class DriveTrain {
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
+    public void move(double power, double dif){
+        speed = power;
+        offset = dif;
+        leftFront.setPower(speed-offset);
+        rightFront.setPower(speed+offset);
+        leftBack.setPower(speed-offset);
+        rightBack.setPower(speed+offset);
+    }
+
+
+
+
+
+
+
 }
