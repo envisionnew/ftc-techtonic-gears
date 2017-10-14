@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
 public class GlyphArm {
@@ -20,39 +21,34 @@ public class GlyphArm {
 
 public void init(HardwareMap Map) {
     hwMap = Map;
-   // verticalMotor = hwMap.get(DcMotor.class, "Vertical_Motor");
+    verticalMotor = hwMap.get(DcMotor.class, "rear_left");
     leftHand = hwMap.get(Servo.class, "glyph_claw_l");
     rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 
-    //verticalMotor.setDirection(DcMotor.Direction.FORWARD);
- //   verticalMotor.setPower(0);
+    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
+    verticalMotor.setPower(0);
     leftHand.setPosition(leftOffset);
     rightHand.setPosition(rightOffset);
 }
 
-/*public void moveUpOrDown(double power){
+public void getPosition(Telemetry telemetry){
+    telemetry.addData("L: " + leftHand.getPosition(), "R: " + rightHand.getPosition());
+    telemetry.update();
+
+}
+
+public void moveUpOrDown(double power){
     verticalMotor.setDirection(DcMotor.Direction.FORWARD);
     verticalMotor.setPower(power);
-}*/
-public void clawClose(Double clawoffset){
-    leftOffset += clawoffset;
-    rightOffset -= clawoffset;
-    leftHand.setPosition(leftOffset);
-    rightHand.setPosition(rightOffset);
+}
+public void clawClose(){
+    leftHand.setPosition(Servo.MAX_POSITION - 0.1);
+    rightHand.setPosition(Servo.MIN_POSITION + 0.1);
 }
 
-public void moveClaw(Double clawoffset){
-    leftOffset += clawoffset;
-    rightOffset -= clawoffset;
-
-    leftHand.setPosition(leftOffset);
-    rightHand.setPosition(rightOffset);
-}
-public void clawOpen(Double clawoffset){
-    leftOffset -= clawoffset;
-    rightOffset += clawoffset;
-    leftHand.setPosition(leftOffset);
-    rightHand.setPosition(rightOffset);
+public void clawOpen(){
+    leftHand.setPosition(Servo.MIN_POSITION + 0.1);
+    rightHand.setPosition(Servo.MAX_POSITION - 0.1);
 
 }
 }
