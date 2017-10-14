@@ -20,29 +20,39 @@ public class GlyphArm {
 
 public void init(HardwareMap Map) {
     hwMap = Map;
-    verticalMotor = hwMap.get(DcMotor.class, "Vertical_Motor");
+   // verticalMotor = hwMap.get(DcMotor.class, "Vertical_Motor");
     leftHand = hwMap.get(Servo.class, "glyph_claw_l");
     rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 
-    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
-    verticalMotor.setPower(0);
+    //verticalMotor.setDirection(DcMotor.Direction.FORWARD);
+ //   verticalMotor.setPower(0);
     leftHand.setPosition(leftOffset);
     rightHand.setPosition(rightOffset);
 }
 
-public void moveUpOrDown(double power){
+/*public void moveUpOrDown(double power){
     verticalMotor.setDirection(DcMotor.Direction.FORWARD);
     verticalMotor.setPower(power);
+}*/
+public void clawClose(Double clawoffset){
+    leftOffset += clawoffset;
+    rightOffset -= clawoffset;
+    leftHand.setPosition(leftOffset);
+    rightHand.setPosition(rightOffset);
 }
-//public void armDown(Double power){
-//    verticalMotor.setDirection(DcMotor.Direction.REVERSE);
-//}
-public void clawClose(){
-    leftHand.setPosition(Servo.MAX_POSITION);
-    rightHand.setPosition(Servo.MIN_POSITION);
+
+public void moveClaw(Double clawoffset){
+    leftOffset += clawoffset;
+    rightOffset -= clawoffset;
+
+    leftHand.setPosition(leftOffset);
+    rightHand.setPosition(rightOffset);
 }
-public void clawOpen(){
-    leftHand.setPosition(Servo.MIN_POSITION);
-    rightHand.setPosition(Servo.MAX_POSITION);
+public void clawOpen(Double clawoffset){
+    leftOffset -= clawoffset;
+    rightOffset += clawoffset;
+    leftHand.setPosition(leftOffset);
+    rightHand.setPosition(rightOffset);
+
 }
 }

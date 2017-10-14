@@ -77,15 +77,15 @@ public class TestTOP extends OpMode{
      }else if(gamepad1.left_stick_y > 0){
          armSpeed = gamepad1.left_stick_y;*/
    if(gamepad1.left_stick_y > 0 ) {
-       robot.armMotor.setPower(robot.ARM_DOWN_POWER);
+       robot.leftArm.setPower(robot.ARM_DOWN_POWER);
    }else if(gamepad1.left_stick_y < 0){
-       robot.armMotor.setPower(robot.ARM_UP_POWER);
+       robot.leftArm.setPower(robot.ARM_UP_POWER);
 
      }else{
          armSpeed = 0.0;
      }
      clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.armMotor.setPower(armSpeed/8);
+        robot.leftArm.setPower(armSpeed/8);
         robot.leftClaw.setPosition(robot.MID_SERVO - clawOffset);
         robot.rightClaw.setPosition(robot.MID_SERVO + clawOffset);
 
@@ -97,5 +97,6 @@ public class TestTOP extends OpMode{
     public void stop(){
 
     }
+
 
     }
