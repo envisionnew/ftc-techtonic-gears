@@ -33,7 +33,7 @@ public class GlyphTest extends OpMode
         glyphArm.moveUpOrDown(speed);
 
         if(gamepad2.left_bumper){
-            telemetry.addData("Left Bumper Pressed: ", "");
+            telemetry.addData("Left Bumper Pressed ", "");
             telemetry.update();
             glyphArm.clawClose();
         }

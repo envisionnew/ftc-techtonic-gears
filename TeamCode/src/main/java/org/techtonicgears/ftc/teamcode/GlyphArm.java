@@ -15,6 +15,7 @@ public class GlyphArm {
     private Servo rightHand;
     double leftOffset = 0.5;
     double rightOffset = 0.5;
+    double clawOff = 0.2;
     HardwareMap hwMap = null;
 
 
@@ -42,13 +43,13 @@ public void moveUpOrDown(double power){
     verticalMotor.setPower(power);
 }
 public void clawClose(){
-    leftHand.setPosition(Servo.MAX_POSITION - 0.1);
-    rightHand.setPosition(Servo.MIN_POSITION + 0.1);
+    leftHand.setPosition(Servo.MAX_POSITION - clawOff);
+    rightHand.setPosition(Servo.MIN_POSITION + clawOff);
 }
 
 public void clawOpen(){
-    leftHand.setPosition(Servo.MIN_POSITION + 0.1);
-    rightHand.setPosition(Servo.MAX_POSITION - 0.1);
+    leftHand.setPosition(Servo.MIN_POSITION + clawOff);
+    rightHand.setPosition(Servo.MAX_POSITION - clawOff);
 
 }
 }
