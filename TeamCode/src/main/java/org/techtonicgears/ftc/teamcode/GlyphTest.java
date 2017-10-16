@@ -7,8 +7,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name= "GlyphTest: Ritali")
 //@Disabled
-public class GlyphTest extends OpMode
-{
+public class GlyphTest extends OpMode {
     GlyphArm glyphArm = new GlyphArm();
     double clawPos = 0.0d;
 
