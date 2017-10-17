@@ -8,9 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 
-/**
- * Created by vmujoo on 9/21/2017.
- */
+
 @TeleOp(name = "TeleOp: Relic")
 @Disabled
 public class RelicTest extends OpMode{
@@ -41,7 +39,6 @@ public class RelicTest extends OpMode{
 
         slide = arm.relicSlide;
         arm1 = arm.relicArm1;
-
         arm2 = arm.relicArm2;
         claw = arm.relicClaw;
 
