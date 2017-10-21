@@ -8,14 +8,13 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by vmujoo on 9/21/2017.
  */
-@TeleOp(name = "TeleOp: Drive")
+@TeleOp(name = "TeleOp: Real")
 public class TeleOpReal extends OpMode{
     //All RobotParts
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
 
     //Variables
-    double clawPos = 0.0d;
     double lienarSp = 0.0d;
     double speed = 0.0d;
     double offset = 0.0d;
@@ -45,13 +44,12 @@ public class TeleOpReal extends OpMode{
         //GlyphArm part
         lienarSp = -gamepad2.right_stick_y;
         lienarSp = Range.clip(lienarSp, -0.5, 0.5);
-        glyphArm.moveUpOrDown(lienarSp);
+        glyphArm.moveL(lienarSp);
 
         if(gamepad2.left_bumper){
-            glyphArm.clawClose();
-        }
-        if(gamepad2.right_bumper){
-            glyphArm.clawOpen();
+            glyphArm.clawSet(0);
+        }else if(gamepad2.right_bumper){
+            glyphArm.clawSet(0.5);
         }
 
         //Drive Part
