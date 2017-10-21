@@ -15,14 +15,14 @@ public class GlyphArm {
     private Servo rightHand;
     double leftOffset = 0.5;
     double rightOffset = 0.5;
-    double clawOff = 0.2;
+    double clawOff = 0.3;
     HardwareMap hwMap = null;
 
 
 
 public void init(HardwareMap Map) {
     hwMap = Map;
-    verticalMotor = hwMap.get(DcMotor.class, "rear_left");
+    verticalMotor = hwMap.get(DcMotor.class, "glyph_arm");
     leftHand = hwMap.get(Servo.class, "glyph_claw_l");
     rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 
