@@ -2,11 +2,8 @@ package org.techtonicgears.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @Disabled
@@ -14,23 +11,25 @@ public class GlyphArm {
     private DcMotor verticalMotor;
     private Servo leftHand;
     private Servo rightHand;
-    double leftOffset = 0.5;
-    double rightOffset = 0.5;
-    double clawOff = 0.2;
+    double leftclaw_ST = 0.2;
+    double rightclaw_ST = 1;
+    public int Uptime = 0;
     HardwareMap hwMap = null;
+
 
 
 
     public void init(HardwareMap Map) {
         hwMap = Map;
-        verticalMotor = hwMap.get(DcMotor.class, "rear_left");
+        verticalMotor = hwMap.get(DcMotor.class, "glyph_arm");
         leftHand = hwMap.get(Servo.class, "glyph_claw_l");
         rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 
         verticalMotor.setDirection(DcMotor.Direction.FORWARD);
         verticalMotor.setPower(0);
-        leftHand.setPosition(leftOffset);
-        rightHand.setPosition(rightOffset);
+        leftHand.setPosition(leftclaw_ST);
+        rightHand.setPosition(rightclaw_ST);
+        Uptime = 0;
     }
 
     public void getPosition(Telemetry telemetry){
@@ -39,18 +38,12 @@ public class GlyphArm {
 
     }
 
-    public void moveUpOrDown(double power){
+    public void moveL(double power){
         verticalMotor.setDirection(DcMotor.Direction.FORWARD);
         verticalMotor.setPower(power);
     }
-    public void clawClose(){
-        leftHand.setPosition(Servo.MAX_POSITION - clawOff);
-        rightHand.setPosition(Servo.MIN_POSITION + clawOff);
-    }
-
-    public void clawOpen(){
-        leftHand.setPosition(Servo.MIN_POSITION + clawOff);
-        rightHand.setPosition(Servo.MAX_POSITION - clawOff);
-
+    public void clawSet(double inc){
+        leftHand.setPosition(leftclaw_ST+inc);
+        rightHand.setPosition(rightclaw_ST-inc);
     }
 }

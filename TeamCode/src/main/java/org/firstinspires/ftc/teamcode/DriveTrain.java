@@ -14,8 +14,8 @@ public class DriveTrain {
     DcMotor rightFront   = null;
     DcMotor  leftBack  = null;
     DcMotor  rightBack  = null;
-    double speed;
-    double offset;
+    double speed = 0.0d;
+    double offset = 0.0d;
 
     HardwareMap hwMap = null;
     private ElapsedTime period  = new ElapsedTime();
@@ -44,10 +44,10 @@ public class DriveTrain {
     public void move(double power, double dif){
         speed = power;
         offset = dif;
-        leftFront.setPower(speed-offset);
-        rightFront.setPower(speed+offset);
-        leftBack.setPower(speed-offset);
-        rightBack.setPower(speed+offset);
+        leftFront.setPower((speed-offset)/2);
+        rightFront.setPower((speed+offset)/2);
+        leftBack.setPower((speed-offset)/2);
+        rightBack.setPower((speed+offset)/2);
     }
 
 
