@@ -8,30 +8,30 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by vmujoo on 9/21/2017.
  */
-@TeleOp(name = "TeleOp: Drive")
+@TeleOp(name = "TeleOp: Real")
 public class TeleOpReal extends OpMode{
     //All RobotParts
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
+    RelicArm  arm = new RelicArm();
 
     //Variables
-    double clawPos = 0.0d;
     double lienarSp = 0.0d;
     double speed = 0.0d;
     double offset = 0.0d;
+    double clawPos = 0.0d;
+    double arm1Pos = 0.0d;
+    double slidePos = 0.0d;
     @Override
     public void init() {
         //Init all RobotParts
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
+        arm.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
         telemetry.update();
-
-        //Init all variables
-        drive.offset = 0.0d;
-        drive.speed = 0.0d;
     }
     @Override
     public void init_loop(){
@@ -43,15 +43,21 @@ public class TeleOpReal extends OpMode{
     @Override
     public void loop() {
         //GlyphArm part
-        lienarSp = -gamepad2.right_stick_y;
-        lienarSp = Range.clip(lienarSp, -0.5, 0.5);
-        glyphArm.moveUpOrDown(lienarSp);
+        if(gamepad2.right_stick_y < 0){
+            glyphArm.Uptime++;
+            lienarSp = 0.5;
+        }else if(gamepad2.right_stick_y > 0 && glyphArm.Uptime > 0){
+            lienarSp = -0.5;
+            glyphArm.Uptime--;
+        }else{
+            lienarSp = 0;
+        }
+        glyphArm.moveL(lienarSp);
 
         if(gamepad2.left_bumper){
-            glyphArm.clawClose();
-        }
-        if(gamepad2.right_bumper){
-            glyphArm.clawOpen();
+            glyphArm.clawSet(0.1);
+        }else if(gamepad2.right_bumper){
+            glyphArm.clawSet(0.5);
         }
 
         //Drive Part
@@ -61,10 +67,46 @@ public class TeleOpReal extends OpMode{
 
         drive.move(speed, offset);
 
+        if(gamepad2.y){
+            slidePos = 0.5d;
+        }else if(gamepad2.a) {
+            slidePos = -0.5d;
+        }else{
+            slidePos = 0;
+        }
+
+        if(gamepad2.right_trigger>0) {
+            clawPos += 0.01d;
+        }
+
+        if(gamepad2.left_trigger>0) {
+            clawPos -= 0.01d;
+
+        }
+        if(gamepad2.x) {
+            arm1Pos += 0.01d;
+        }
+        if(gamepad2.b) {
+            arm1Pos -= 0.01d;
+        }
+
+        arm.RelicExt(slidePos);
+        arm.ClawMove(arm.relicClaw_ST+clawPos);
+        arm.ArmMove(arm.relicArm1_ST+arm1Pos);
+
         //Sending messages
-        glyphArm.getPosition(telemetry);
-        telemetry.addData("Power",speed);
-        telemetry.addData("Offset",offset);
+        //glyphArm.getPosition(telemetry);
+       // telemetry.addData("Power",speed);
+       // telemetry.addData("Offset",offset);
+        telemetry.addData("UpTime", glyphArm.Uptime/1000);
+        telemetry.update();
+        
+        try {
+            Thread.sleep(1);
+        }catch (Exception InterruptedException){
+
+        }
+        
     }
     @Override
     public void stop() {

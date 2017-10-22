@@ -26,27 +26,8 @@ public class GlyphTest extends OpMode
         telemetry.update();
     }
 
-    public void loop(){
+    public void loop() {
 
-        double speed = -gamepad2.right_stick_y;
-        speed = Range.clip(speed, -0.5, 0.5);
-        glyphArm.moveUpOrDown(speed);
 
-        if(gamepad2.left_bumper){
-            telemetry.addData("Left Bumper Pressed ", "");
-            telemetry.update();
-            glyphArm.clawClose();
-        }
-
-        if(gamepad2.right_bumper){
-            telemetry.addData("Right Bumper Pressed", "");
-            telemetry.update();
-            glyphArm.clawOpen();
-        }
-
-        glyphArm.getPosition(telemetry);
-    }
-
-    public void stop(){
     }
 }
