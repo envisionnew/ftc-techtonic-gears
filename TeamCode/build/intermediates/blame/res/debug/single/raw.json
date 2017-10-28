@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\nxtstartupsound.wav",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\raw\\nxtstartupsound.wav"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\color_fragment_shader.glsl",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\raw\\color_fragment_shader.glsl"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\cube_mesh_vertex_shader.glsl",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\raw\\cube_mesh_vertex_shader.glsl"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\texture_vertex_shader.glsl",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\raw\\texture_vertex_shader.glsl"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\chimeconnect.wav",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\raw\\chimeconnect.wav"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\texture_fragment_shader.glsl",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\raw\\texture_fragment_shader.glsl"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\simple_vertex_shader.glsl",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\raw\\simple_vertex_shader.glsl"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\cube_mesh_fragment_shader.glsl",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\raw\\cube_mesh_fragment_shader.glsl"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\errormessage.wav",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\raw\\errormessage.wav"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\chimedisconnect.wav",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\raw\\chimedisconnect.wav"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\raw\\warningmessage.wav",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\raw\\warningmessage.wav"
+    }
+]

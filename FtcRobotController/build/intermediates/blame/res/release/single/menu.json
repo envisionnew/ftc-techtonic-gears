@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\menu\\menu_server.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\f917300a6b34dacc7528d9f3bb599ab87ff7b32c\\output\\res\\menu\\menu_server.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\menu\\ftc_robot_controller.xml",
+        "source": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\src\\main\\res\\menu\\ftc_robot_controller.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\menu\\main_menu.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\1a5501aabdbce524b4ea90811aa5ab36ac8af444\\output\\res\\menu\\main_menu.xml"
+    }
+]

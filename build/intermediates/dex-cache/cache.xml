@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\ftc-techtonic-gears-1\FtcRobotController\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="63096d280a6d0792ddbe5601216c3bc2bb685e8c">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_8875d4a8629464dbe6a53a9eb588ed821019bbe0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\026cf98d66e1bc48726d6781941d81f22c40b8fa\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9dafed45e330aec14abcce05bdb7bbdb2a2d7092">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_1c1bda38538f6d23767206773b3957dbe0eb5940.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\output\jars\libs\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5a214d3b1b12e72f4fb0d5d5d8d0ec43c96de2b5">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_4bcbf310ad7755e2ac06c28d3940136e98945432.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\output\jars\libs\gson-extras-0.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b30c2655badcc7ce97f84e49f777b7dd154bad57">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\gson-extras-0.2.1_e472e1a75934b0ea6d00e34a553b51e5e69d4524.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\f917300a6b34dacc7528d9f3bb599ab87ff7b32c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="75bdc736b17d8f39d246beac357cb3a0e007fcfa">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_b0f0f724145985a6e1ab15a328b5e654d5136592.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\905c9e4d055a9aca267c3309691876768e331aea\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="96cbbea552fe9bf3c56540c7e4912eb5cf72301e">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_c09c47df5b87fa5f22770a42dd70b96025a11b81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e259d01a014f392930432e85cc1ac9bf807a92df">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_92eeb500de860c5a7ed6c05073399f425129b782.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\1a5501aabdbce524b4ea90811aa5ab36ac8af444\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9da82f9829b6cafb8407989729481220ca06c905">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_72fc0d7ed32e76537d0b2ac896d88d644dc21565.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\output\jars\libs\Vuforia.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="91b46366eb9f8203073ee2935087c097c888c0ed">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\Vuforia_603a42f01cd1d778e4fd9d1a03f6bcb7a86a3ba2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\a58b1090cfc37121d3ef791cf9643446bac543dd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c2abba0621a5319232804767218216568263aa37">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_c56353d6ba23783c6902f5748a18664cc85c3fdc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\output\jars\libs\gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e118dd0900e4a18fb928ebb8df2d9fbda78f2b5d">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\gson-2.8.0_c416b9549c32248b4eac51934ce527a8ae54d868.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\191c43c35e620c11b6395dfd40e70ca1ad837c36\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9403be210676ed196cdcc64c7391b9ae2361c174">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\classes_2eff090d9c8882d47110baf1fc4ffdd5af089e5b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\vmujoo\.android\build-cache\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\output\jars\libs\javac.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c576121aac49e547b39aedfb1daa29782db4166c">
+        <dex dex="C:\Users\vmujoo\ftc-techtonic-gears-1\TeamCode\build\intermediates\pre-dexed\debug\javac_2948086769a91a21b584e5469983cc7300307fe3.jar" />
+    </item>
+
+</items>

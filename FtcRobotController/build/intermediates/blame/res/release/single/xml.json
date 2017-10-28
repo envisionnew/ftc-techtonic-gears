@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\pushbot.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\pushbot.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\k9legacybot.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\k9legacybot.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\pushbotsens.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\pushbotsens.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\advanced_rc_settings.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\advanced_rc_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\squarebot.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\squarebot.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\maxmodules.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\maxmodules.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\rev_scoot.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\rev_scoot.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\k9usbbot.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\xml\\k9usbbot.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\device_filter.xml",
+        "source": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\src\\main\\res\\xml\\device_filter.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\res\\merged\\release\\xml\\app_settings.xml",
+        "source": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\src\\main\\res\\xml\\app_settings.xml"
+    }
+]

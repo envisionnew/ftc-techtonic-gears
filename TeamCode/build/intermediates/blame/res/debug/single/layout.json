@@ -1,0 +1,226 @@
+[
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\device_interface_module.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\device_interface_module.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\template_info.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\template_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ftc_configuration.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_ftc_configuration.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\servo.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\servo.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\analog_outputs.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\analog_outputs.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\color_list_preference_line_item.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\layout\\color_list_preference_line_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_swap_usb_devices.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_swap_usb_devices.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\analog_inputs.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\analog_inputs.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\pwms.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\pwms.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ftc_wifi_remembered_groups.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_ftc_wifi_remembered_groups.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_program_and_manage.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_program_and_manage.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_generic_settings.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_generic_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\lynx_module_configure_address.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\lynx_module_configure_address.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\loading_indicator_overlay.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\layout\\loading_indicator_overlay.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\info_button.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\info_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ftc_lynx_fw_update.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_ftc_lynx_fw_update.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_config_wifi_direct.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_config_wifi_direct.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\feedback.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\7e16d8f48b5fd5f96ef9b4ecbe2676af37a3332c\\output\\res\\layout\\feedback.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\motor_controller_banner.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\motor_controller_banner.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_blocks.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\f917300a6b34dacc7528d9f3bb599ab87ff7b32c\\output\\res\\layout\\activity_blocks.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\pwm_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\pwm_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\file_info.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\file_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\i2cs.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\i2cs.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\item_list_parent.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\item_list_parent.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\servo_list.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\servo_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\red_line.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\red_line.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_load.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_load.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\analog_output_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\analog_output_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\lynx_module.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\lynx_module.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_inspection.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\1a5501aabdbce524b4ea90811aa5ab36ac8af444\\output\\res\\layout\\activity_inspection.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\button_list.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\button_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\lynx_usb_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\lynx_usb_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ftc_wifi_channel_selector.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_ftc_wifi_channel_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\i2c_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\i2c_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\digital_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\digital_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_view_logs.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_view_logs.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\gray_line.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\gray_line.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\matrix_devices.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\matrix_devices.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ftc_lynx_address_update.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_ftc_lynx_address_update.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\banner_parent.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\banner_parent.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\motor.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\motor.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\digital_device_lynx.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\digital_device_lynx.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\simple_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\simple_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\matrices.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\matrices.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_configure_from_template.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\activity_configure_from_template.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ftc_controller.xml",
+        "source": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\FtcRobotController\\build\\intermediates\\bundles\\default\\res\\layout\\activity_ftc_controller.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\motor_list.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\motor_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\digital_devices.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\digital_devices.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\header.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\header.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\legacy.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\legacy.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\activity_programming_mode.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\f917300a6b34dacc7528d9f3bb599ab87ff7b32c\\output\\res\\layout\\activity_programming_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\servo_controller_banner.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\servo_controller_banner.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\analog_input_device.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\analog_input_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\port_attached_row.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\port_attached_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\vmujoo\\ftc-techtonic-gears-1\\TeamCode\\build\\intermediates\\res\\merged\\debug\\layout\\lynx_module_configure_address_spin_item.xml",
+        "source": "C:\\Users\\vmujoo\\.android\\build-cache\\a58b1090cfc37121d3ef791cf9643446bac543dd\\output\\res\\layout\\lynx_module_configure_address_spin_item.xml"
+    }
+]
