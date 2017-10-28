@@ -6,12 +6,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.ftccommon.SoundPlayer;
-
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
  * Created by vmujoo on 9/21/2017.
  */
 @TeleOp(name = "TeleOp: Shuhul")
+@Disabled
 public class TeleOpTest extends OpMode{
     HardwarePushbot robot = new HardwarePushbot();
     DcMotor right;
