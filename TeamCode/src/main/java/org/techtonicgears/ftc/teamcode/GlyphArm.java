@@ -15,7 +15,7 @@ public class GlyphArm {
     private Servo rightHand;
     double leftOffset = 0.5;
     double rightOffset = 0.5;
-    double clawOff = 0.3;
+    double clawOff = 0.2;
     HardwareMap hwMap = null;
 
 
