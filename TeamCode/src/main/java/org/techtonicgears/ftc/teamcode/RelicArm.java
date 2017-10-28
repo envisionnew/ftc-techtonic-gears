@@ -1,4 +1,4 @@
-package org.techtonicgears.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.org.techtonicgrars.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 public class RelicArm {
-    public DcMotor relicSlide = null;
+    public DcMotor relicSlide   = null;
     public Servo relicClaw = null;
     public Servo relicArm1 = null;
     public Servo relicArm2 = null;
@@ -18,8 +18,7 @@ public class RelicArm {
     public final double relicClaw_ST = 0.5;
     HardwareMap hwMap = null;
 
-    private ElapsedTime period = new ElapsedTime();
-
+    private ElapsedTime period  = new ElapsedTime();
 
     public void init(HardwareMap Map) {
         hwMap = Map;
