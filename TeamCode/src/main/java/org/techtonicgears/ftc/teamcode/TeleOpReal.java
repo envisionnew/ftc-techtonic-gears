@@ -39,7 +39,9 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-
+        //Moves arm forward when program is run
+        glyphArm.leftOffset = 0.6;
+        glyphArm.rightOffset = 0.4;
     }
     @Override
     public void loop() {

@@ -13,8 +13,8 @@ public class GlyphArm {
     private DcMotor verticalMotor;
     private Servo leftHand;
     private Servo rightHand;
-    double leftOffset = 0.5;
-    double rightOffset = 0.5;
+    double leftOffset = 0.4;
+    double rightOffset = 0.6;
     double clawOff = 0.2;
     HardwareMap hwMap = null;
 
