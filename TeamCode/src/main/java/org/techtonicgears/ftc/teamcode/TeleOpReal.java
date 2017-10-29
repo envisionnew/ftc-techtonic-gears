@@ -39,18 +39,15 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-        //Moves arm forward when program is run
-        glyphArm.leftOffset = 0.6;
-        glyphArm.rightOffset = 0.4;
     }
     @Override
     public void loop() {
         //GlyphArm part
         if(gamepad2.right_stick_y < 0){
 
-            linearSp = 0.5;
+            linearSp = 1;
         }else if(gamepad2.right_stick_y > 0){
-            linearSp = -0.5;
+            linearSp = -1;
         }else{
             linearSp = 0;
         }
@@ -77,17 +74,16 @@ public class TeleOpReal extends OpMode{
         offset = gamepad1.left_stick_x/2;
 
         drive.move(speed, offset);
-
+        //Relic Arm Part
         if(gamepad2.left_stick_y <0){
 
-            slidePos = 0.5d;
+            slidePos = 1d;
         }else if(gamepad2.left_stick_y >0 ) {
 
-            slidePos = -0.5d;
+            slidePos = -1d;
         }else{
             slidePos = 0;
         }
-        //Relic Arm Part
 
         if(gamepad2.right_trigger>0) {
             clawPos += 0.01d;

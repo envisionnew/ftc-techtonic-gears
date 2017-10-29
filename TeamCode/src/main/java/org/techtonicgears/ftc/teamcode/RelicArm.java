@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
 //@Disabled
 public class RelicArm {
@@ -31,22 +32,16 @@ public class RelicArm {
         relicSlide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
-    public void setTime(boolean ch){
-        if(ch == true){
-            Uptime++;
-        }else{
-            if(Uptime > 0) {
-                Uptime--;
-            }
-        }
-    }
     public void RelicExt(double power){
+
         relicSlide.setPower(power);
     }
     public void ClawMove(double PosC){
+        Range.clip(PosC,-1,1);
         relicClaw.setPosition(PosC);
     }
     public void ArmMove(double PosA){
+        Range.clip(PosA,-1,1);
         relicArm1.setPosition(PosA);
     }
 }
