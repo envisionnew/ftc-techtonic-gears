@@ -39,7 +39,7 @@ public class RelicTest extends OpMode{
 
         slide = arm.relicSlide;
         arm1 = arm.relicArm1;
-        arm2 = arm.relicArm2;
+//        arm2 = arm.relicArm2;
         claw = arm.relicClaw;
 
         linearM = gamepad2.left_stick_y/4;
@@ -65,7 +65,7 @@ public class RelicTest extends OpMode{
         slide.setPower(linearM);
         claw.setPosition(arm.relicClaw_ST+clawPos);
         arm1.setPosition(arm.relicArm1_ST+arm1Pos);
-        arm2.setPosition(arm.relicArm2_ST+arm2Pos);
+//        arm2.setPosition(arm.relicArm2_ST+arm2Pos);
 
     }
     @Override
