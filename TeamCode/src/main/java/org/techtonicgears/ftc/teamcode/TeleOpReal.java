@@ -23,6 +23,8 @@ public class TeleOpReal extends OpMode{
     double arm1Pos = 0.0d;
     double slidePos = 0.0d;
     boolean mode = false;
+    boolean armMode = false;
+    boolean control = false;
     @Override
     public void init() {
         //Init all RobotParts
@@ -39,66 +41,96 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
+        glyphArm.time.reset();
     }
     @Override
     public void loop() {
-        //GlyphArm part
-        if(gamepad2.right_stick_y < 0){
 
-            linearSp = 1;
-        }else if(gamepad2.right_stick_y > 0){
-            linearSp = -1;
-        }else{
-            linearSp = 0;
-        }
-        glyphArm.moveUpOrDown(linearSp);
-
-        if(gamepad2.left_bumper){
-            glyphArm.clawClose();
-        }else if(gamepad2.right_bumper){
-            glyphArm.clawOpen();
-        }
-
-        //Drive Part
+        //Modes
         if(gamepad1.y){
             mode = false;
         }else if(gamepad1.a){
             mode = true;
         }
+
+        if(gamepad2.x) {
+            armMode = false;
+        }else if(gamepad2.b){
+            armMode = true;
+        }
+
+        //Drive Part
         if(mode == false) {
             speed = -gamepad1.right_stick_y;
         }else{
             speed = gamepad1.right_stick_y;
         }
         speed = Range.clip(speed, -0.5, 0.5);
-        offset = gamepad1.left_stick_x/2;
+        offset = gamepad1.right_stick_x/2;
 
         drive.move(speed, offset);
+
+        //GlyphArm part
+
+        if(armMode == false) {
+            if (gamepad2.right_stick_y < 0 && control == false) {
+                linearSp = 1;
+                control = true;
+                glyphArm.time.reset();
+            } else if (gamepad2.right_stick_y > 0 && control == false) {
+                linearSp = -1;
+                control = true;
+                glyphArm.time.reset();
+            }
+            if(glyphArm.time.seconds() > 0.5){
+                control = false;
+                linearSp = 0;
+            }
+            glyphArm.moveUpOrDown(linearSp);
+
+            if (gamepad2.right_trigger > 0) {
+                glyphArm.clawClose();
+            } else if (gamepad2.left_trigger > 0) {
+                glyphArm.clawOpen();
+            }
+        }
+
         //Relic Arm Part
-        if(gamepad2.left_stick_y <0){
+        if(armMode == true) {
+            if (gamepad2.right_stick_y < 0) {
+                slidePos = -1d;
+            } else if (gamepad2.right_stick_y > 0) {
+                slidePos = 1d;
+            } else {
+                slidePos = 0;
+            }
 
-            slidePos = 1d;
-        }else if(gamepad2.left_stick_y >0 ) {
+            if (gamepad2.right_trigger > 0) {
+                clawPos += 0.01d;
+            }
 
-            slidePos = -1d;
-        }else{
-            slidePos = 0;
-        }
+            if (gamepad2.left_trigger > 0) {
+                clawPos -= 0.01d;
 
-        if(gamepad2.right_trigger>0) {
-            clawPos += 0.01d;
-        }
+            }
+            if (arm1Pos > 1) {
+                arm1Pos = 1;
+            } else if (arm1Pos < -1) {
+                arm1Pos = -1;
+            }
 
-        if(gamepad2.left_trigger>0) {
-            clawPos -= 0.01d;
+            if (clawPos > 1) {
+                clawPos = 1;
+            } else if (clawPos < -1) {
+                clawPos = -1;
+            }
 
-        }
-
-        if(gamepad2.x) {
-            arm1Pos += 0.01d;
-        }
-        if(gamepad2.b) {
-            arm1Pos -= 0.01d;
+            if (gamepad2.a) {
+                arm1Pos += 0.01d;
+            }
+            if (gamepad2.y) {
+                arm1Pos -= 0.01d;
+            }
         }
 
         arm.RelicExt(slidePos);
@@ -108,19 +140,14 @@ public class TeleOpReal extends OpMode{
         //Sending messages
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
-        // telemetry.addData("Offset",offset);
-        telemetry.addData("UpTime", arm.Uptime);
-
+        telemetry.addData("time",glyphArm.time.seconds());
+        telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 
-        try {
-            Thread.sleep(1);
-        }catch (Exception InterruptedException){
-
-        }
 
     }
     @Override
     public void stop() {
     }
+
 }

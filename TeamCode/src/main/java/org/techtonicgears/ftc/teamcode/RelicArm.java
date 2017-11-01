@@ -13,12 +13,10 @@ public class RelicArm {
     public DcMotor relicSlide   = null;
     public Servo relicClaw = null;
     public Servo relicArm1 = null;
-    public final double relicArm1_ST = -1;
+    public final double relicArm1_ST = 1;
     public final double relicClaw_ST = 0;
     public int Uptime;
     HardwareMap hwMap = null;
-
-    private ElapsedTime period  = new ElapsedTime();
 
     public void init(HardwareMap Map) {
         hwMap = Map;

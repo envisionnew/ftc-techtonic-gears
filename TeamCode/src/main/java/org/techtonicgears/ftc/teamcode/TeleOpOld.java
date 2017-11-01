@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by vmujoo on 9/21/2017.
  */
-@TeleOp(name = "TeleOp: Set")
-public class TeleOpSet extends OpMode{
+@TeleOp(name = "TeleOp: Old")
+public class TeleOpOld extends OpMode{
     //All RobotParts
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
@@ -39,24 +39,24 @@ public class TeleOpSet extends OpMode{
     }
     @Override
     public void start() {
-
     }
     @Override
     public void loop() {
         //GlyphArm part
         if(gamepad2.right_stick_y < 0){
-            linearSp = 0.5;
+
+            linearSp = 1;
         }else if(gamepad2.right_stick_y > 0){
-            linearSp = -0.5;
+            linearSp = -1;
         }else{
             linearSp = 0;
         }
         glyphArm.moveUpOrDown(linearSp);
 
         if(gamepad2.left_bumper){
-            glyphArm.clawOpen();
-        }else if(gamepad2.right_bumper){
             glyphArm.clawClose();
+        }else if(gamepad2.right_bumper){
+            glyphArm.clawOpen();
         }
 
         //Drive Part
@@ -74,15 +74,16 @@ public class TeleOpSet extends OpMode{
         offset = gamepad1.left_stick_x/2;
 
         drive.move(speed, offset);
-
+        //Relic Arm Part
         if(gamepad2.left_stick_y <0){
-            slidePos = 0.5d;
-        }else if(gamepad2.left_stick_y >0) {
-            slidePos = -0.5d;
+
+            slidePos = 1d;
+        }else if(gamepad2.left_stick_y >0 ) {
+
+            slidePos = -1d;
         }else{
             slidePos = 0;
         }
-        //Relic Arm Part
 
         if(gamepad2.right_trigger>0) {
             clawPos += 0.01d;
@@ -108,14 +109,10 @@ public class TeleOpSet extends OpMode{
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
         // telemetry.addData("Offset",offset);
-//        telemetry.addData("UpTime", glyphArm);
+        telemetry.addData("UpTime", arm.Uptime);
+
         telemetry.update();
 
-        try {
-            Thread.sleep(1);
-        }catch (Exception InterruptedException){
-
-        }
 
     }
     @Override
