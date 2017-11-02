@@ -3,7 +3,7 @@ package org.techtonicgears.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
-
+//#hypocrite
 
 /**
  * Created by vmujoo on 9/21/2017.
@@ -47,9 +47,9 @@ public class TeleOpReal extends OpMode{
     public void loop() {
 
         //Modes
-        if(gamepad1.y){
+        if(gamepad1.a){
             mode = false;
-        }else if(gamepad1.a){
+        }else if(gamepad1.y){
             mode = true;
         }
 
@@ -66,7 +66,7 @@ public class TeleOpReal extends OpMode{
             speed = gamepad1.right_stick_y;
         }
         speed = Range.clip(speed, -0.5, 0.5);
-        offset = gamepad1.right_stick_x/2;
+        offset = gamepad1.left_stick_x/2;
 
         drive.move(speed, offset);
 
@@ -82,7 +82,7 @@ public class TeleOpReal extends OpMode{
                 control = true;
                 glyphArm.time.reset();
             }
-            if(glyphArm.time.seconds() > 0.5){
+            if(glyphArm.time.seconds() > 1.2){
                 control = false;
                 linearSp = 0;
             }
