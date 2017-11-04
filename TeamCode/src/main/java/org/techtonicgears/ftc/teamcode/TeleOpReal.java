@@ -82,16 +82,21 @@ public class TeleOpReal extends OpMode{
                 control = true;
                 glyphArm.time.reset();
             }
-            if(glyphArm.time.seconds() > 1.2){
+
+            if(gamepad2.left_stick_y < 0){
+                linearSp = 0.5;
+            }else if(gamepad2.left_stick_y > 0){
+                linearSp = -0.5;
+            }else if(glyphArm.time.seconds() > 1.15){
                 control = false;
                 linearSp = 0;
             }
             glyphArm.moveUpOrDown(linearSp);
 
             if (gamepad2.right_trigger > 0) {
-                glyphArm.clawClose();
-            } else if (gamepad2.left_trigger > 0) {
                 glyphArm.clawOpen();
+            } else if (gamepad2.left_trigger > 0) {
+                glyphArm.clawClose();
             }
         }
 

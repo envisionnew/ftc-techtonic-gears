@@ -3,11 +3,12 @@ package org.techtonicgears.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
-
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 /**
  * Created by vmujoo on 9/21/2017.
  */
+@Disabled
 @TeleOp(name = "TeleOp: Old")
 public class TeleOpOld extends OpMode{
     //All RobotParts
