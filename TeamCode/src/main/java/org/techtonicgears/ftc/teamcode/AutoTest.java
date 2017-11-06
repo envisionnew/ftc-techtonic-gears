@@ -16,16 +16,14 @@ public class AutoTest extends LinearOpMode{
 
         waitForStart();
         totalTime.reset();
-        while(opModeIsActive() && totalTime.seconds() < 2){
+        while(opModeIsActive() && totalTime.seconds() < 2.2){
             drive.init(hardwareMap);
             glyphArm.init(hardwareMap);
             drive.timer.reset();
-            while (totalTime.seconds() < 0.5) {
-                glyphArm.clawClose();
-            }
+            drive.runwithArm = true;
             drive.moveSec(2,0.5,0);
-            //drive.moveSec(2,0,1);
+            drive.runwithArm = false;
+            drive.moveSec(0.2,0.2,0);
         }
-
     }
 }

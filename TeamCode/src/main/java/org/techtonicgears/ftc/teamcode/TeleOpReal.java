@@ -3,7 +3,6 @@ package org.techtonicgears.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
-//#hypocrite
 
 /**
  * Created by vmujoo on 9/21/2017.
@@ -22,6 +21,7 @@ public class TeleOpReal extends OpMode{
     double clawPos = 0.0d;
     double arm1Pos = 0.0d;
     double slidePos = 0.0d;
+    int height = 0;
     boolean mode = false;
     boolean armMode = false;
     boolean control = false;
@@ -73,14 +73,16 @@ public class TeleOpReal extends OpMode{
         //GlyphArm part
 
         if(armMode == false) {
-            if (gamepad2.right_stick_y < 0 && control == false) {
+            if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 1;
                 control = true;
                 glyphArm.time.reset();
-            } else if (gamepad2.right_stick_y > 0 && control == false) {
+                height++;
+            } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
                 linearSp = -1;
                 control = true;
                 glyphArm.time.reset();
+                height--;
             }
 
             if(gamepad2.left_stick_y < 0){
