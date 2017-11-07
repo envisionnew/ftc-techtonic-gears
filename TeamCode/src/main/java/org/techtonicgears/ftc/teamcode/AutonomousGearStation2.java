@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "AutonomousGear")
-public class AutonomousGear extends LinearOpMode{
+@Autonomous(name = "AutonomousGearStation2")
+public class AutonomousGearStation2 extends LinearOpMode{
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     private ElapsedTime runtime = new ElapsedTime();
@@ -27,7 +27,7 @@ public class AutonomousGear extends LinearOpMode{
 
 
         //moving off the balance beam with glyph secured in claw
-        glyphArm.clawOpen();
+        glyphArm.clawClose();
         glyphArm.moveUpOrDown(1);
         runtime.reset();
 
@@ -41,13 +41,26 @@ public class AutonomousGear extends LinearOpMode{
         driveTrain.move(0.3, 0.0);
         runtime.reset();
 
-        while (opModeIsActive() && (runtime.seconds() < 2.0)){
+        while (opModeIsActive() && (runtime.seconds() < 1.0)){
             telemetry.addData("Forward", runtime.seconds());
             telemetry.update();
         }
 
         //To stop the drive train
         driveTrain.move(0.0, 0.0);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)){
+            telemetry.addData("Stopped", runtime.seconds());
+            telemetry.update();
+        }
+
+        //turning left to crypto box
+        driveTrain.move(0.2, -0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.0)){
+            telemetry.addData("Turning", runtime.seconds());
+            telemetry.update();
+        }
 
         //turn towards crypto box
         glyphArm.clawOpen();
