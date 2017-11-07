@@ -14,12 +14,7 @@ public class DriveTrain {
     DcMotor  rightBack  = null;
     double speed;
     double offset;
-    public boolean runwithArm = false;
-
     HardwareMap hwMap = null;
-    public ElapsedTime timer  = new ElapsedTime();
-    GlyphArm arm = new GlyphArm();
-
     public DriveTrain(){
 
     }
@@ -39,7 +34,6 @@ public class DriveTrain {
         rightBack.setPower(0);
         leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        arm.init(hwMap);
 
     }
     public void move(double power, double dif){
@@ -49,18 +43,6 @@ public class DriveTrain {
         rightFront.setPower(speed+offset);
         leftBack.setPower(speed-offset);
         rightBack.setPower(speed+offset);
-    }
-    public void moveSec(double sec, double power, double offset){
-        move(power,offset);
-        while (timer.seconds() < sec) {
-            if(runwithArm == true){
-                arm.clawClose();
-            }else{
-                arm.clawOpen();
-            }
-        }
-        timer.reset();
-        move(0, 0);
     }
 
 }

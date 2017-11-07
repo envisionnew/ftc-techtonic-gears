@@ -7,23 +7,42 @@ import com.qualcomm.robotcore.util.*;
  */
 @Autonomous(name = "AutoTest")
 public class AutoTest extends LinearOpMode{
-    ElapsedTime totalTime = new ElapsedTime();
+    ElapsedTime timer = new ElapsedTime();
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
+    boolean moveWithArm = false;
+    boolean turn = true;
 
     @Override
     public void runOpMode() throws InterruptedException{
 
         waitForStart();
-        totalTime.reset();
-        while(opModeIsActive() && totalTime.seconds() < 2.2){
-            drive.init(hardwareMap);
-            glyphArm.init(hardwareMap);
-            drive.timer.reset();
-            drive.runwithArm = true;
-            drive.moveSec(2,0.5,0);
-            drive.runwithArm = false;
-            drive.moveSec(0.2,0.2,0);
+        drive.init(hardwareMap);
+        glyphArm.init(hardwareMap);
+        timer.reset();
+        if(turn == false) {
+            moveWithArm = true;
+            moveSec(1, 0.5, 0.01);
+            moveWithArm = false;
+            moveSec(1.5, 0.2, 0);
+        }else{
+            moveWithArm = true;
+            moveSec(0.7, 0.5, 0);
+            moveSec(0.8, 0, 1);
+            moveWithArm = false;
+            moveSec(0.8, 0.2, 0);
         }
+    }
+    public void moveSec(double sec, double power, double offset){
+        while (opModeIsActive() && timer.seconds() < sec){
+
+            drive.move(power,offset);
+            if(moveWithArm == true) {
+                glyphArm.clawOpen();
+            }else {
+                glyphArm.clawClose();
+            }
+        }
+        timer.reset();
     }
 }
