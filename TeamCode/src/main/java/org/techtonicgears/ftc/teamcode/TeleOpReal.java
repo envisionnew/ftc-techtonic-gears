@@ -73,7 +73,7 @@ public class TeleOpReal extends OpMode{
         //GlyphArm part
 
         if(armMode == false) {
-            if (gamepad2.right_stick_y < 0 && control == false && height < 3) {
+            if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 1;
                 control = true;
                 glyphArm.time.reset();
@@ -86,10 +86,10 @@ public class TeleOpReal extends OpMode{
             }
 
             if(gamepad2.left_stick_y < 0){
-                linearSp = 0.5;
+                linearSp = 0.3;
             }else if(gamepad2.left_stick_y > 0){
-                linearSp = -0.5;
-            }else if(glyphArm.time.seconds() > 1.15){
+                linearSp = -0.3;
+            }else if(glyphArm.time.seconds() > 0.4){
                 control = false;
                 linearSp = 0;
             }
