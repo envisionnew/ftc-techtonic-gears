@@ -23,6 +23,7 @@ public class TeleOpReal extends OpMode{
     boolean mode = false;
     boolean armMode = false;
     boolean control = false;
+
     @Override
     public void init() {
         //Init all RobotParts
