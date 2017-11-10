@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.techtonicgears.ftc.teamcode;
 
 import com.qualcomm.ftccommon.SoundPlayer;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @TeleOp(name= "TeleOp")
-//@Disabled
+@Disabled
 public class TestTOP extends OpMode{
 
     //creating a robot

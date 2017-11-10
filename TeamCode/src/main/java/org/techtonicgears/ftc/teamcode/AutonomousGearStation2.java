@@ -26,7 +26,7 @@ public class AutonomousGearStation2 extends LinearOpMode{
         waitForStart();
 
 
-        //moving off the balance beam with glyph secured in claw
+        //Secure glyph in arm
         glyphArm.clawClose();
         glyphArm.moveUpOrDown(1);
         runtime.reset();
@@ -41,7 +41,7 @@ public class AutonomousGearStation2 extends LinearOpMode{
         driveTrain.move(0.3, 0.0);
         runtime.reset();
 
-        while (opModeIsActive() && (runtime.seconds() < 1.0)){
+        while (opModeIsActive() && (runtime.seconds() < 1.37)){
             telemetry.addData("Forward", runtime.seconds());
             telemetry.update();
         }
@@ -55,14 +55,29 @@ public class AutonomousGearStation2 extends LinearOpMode{
         }
 
         //turning left to crypto box
-        driveTrain.move(0.2, -0.5);
+        driveTrain.move(0.1, -0.3);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)){
+        while (opModeIsActive() && (runtime.seconds() < 1.2)){
             telemetry.addData("Turning", runtime.seconds());
             telemetry.update();
         }
 
-        //turn towards crypto box
+        //To stop the drive train
+        driveTrain.move(0.0, 0.0);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.1)){
+            telemetry.addData("Stopped", runtime.seconds());
+            telemetry.update();
+        }
+
+        //moving to place glyph
+        driveTrain.move(0.2, 0.0);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.15)){
+            telemetry.addData("Aligning", runtime.seconds());
+            telemetry.update();
+        }
+        //drop glyph
         glyphArm.clawOpen();
     }
 }

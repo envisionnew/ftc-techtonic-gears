@@ -1,5 +1,6 @@
 package org.techtonicgears.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -11,6 +12,7 @@ import com.qualcomm.robotcore.util.Range;
  * Created by vmujoo on 9/21/2017.
  */
 @TeleOp(name = "TeleOp: Drive")
+@Disabled
 public class DriveTest extends OpMode{
     DriveTrain drive = new DriveTrain();
     double speed = 0.0d;

@@ -27,7 +27,7 @@ public class AutonomousGear extends LinearOpMode{
 
 
         //moving off the balance beam with glyph secured in claw
-        glyphArm.clawOpen();
+        glyphArm.clawClose();
         glyphArm.moveUpOrDown(1);
         runtime.reset();
 
@@ -38,10 +38,10 @@ public class AutonomousGear extends LinearOpMode{
         glyphArm.moveUpOrDown(0);
 
         //move robot straight
-        driveTrain.move(0.3, 0.0);
+        driveTrain.move(0.2, 0.0);
         runtime.reset();
 
-        while (opModeIsActive() && (runtime.seconds() < 2.0)){
+        while (opModeIsActive() && (runtime.seconds() < 2.75)){
             telemetry.addData("Forward", runtime.seconds());
             telemetry.update();
         }

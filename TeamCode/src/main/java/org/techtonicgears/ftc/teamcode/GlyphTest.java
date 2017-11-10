@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name= "GlyphTest: Ritali")
-//@Disabled
+@Disabled
 public class GlyphTest extends OpMode {
     GlyphArm glyphArm = new GlyphArm();
     double clawPos = 0.0d;
