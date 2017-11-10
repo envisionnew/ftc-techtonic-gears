@@ -7,7 +7,7 @@ public class JewelArm {
     //defining the jewel arm
     Servo jewelArm;
     HardwareMap hwMap;
-    public void init(){
+    public void init(HardwareMap Map){
         hwMap = Map;
         jewelArm = hwMap.get(Servo.class, "jewel_arm");
         jewelArm.setPosition(0);
