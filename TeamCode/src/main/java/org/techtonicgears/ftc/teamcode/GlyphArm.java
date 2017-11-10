@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-
+import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -13,12 +13,11 @@ public class GlyphArm {
     private DcMotor verticalMotor;
     private Servo leftHand;
     private Servo rightHand;
-    double leftOffset = 0.5;
-    double rightOffset = 0.5;
-    double clawOff = 0.2;
+    double leftOffset = 0.77;
+    double rightOffset = 0.28;
+    double clawOff = 0.4;
     HardwareMap hwMap = null;
-
-
+    public ElapsedTime time = new ElapsedTime();
 
 public void init(HardwareMap Map) {
     hwMap = Map;
@@ -43,13 +42,13 @@ public void moveUpOrDown(double power){
     verticalMotor.setPower(power);
 }
 public void clawClose(){
-    leftHand.setPosition(Servo.MAX_POSITION - clawOff);
-    rightHand.setPosition(Servo.MIN_POSITION + clawOff);
+    leftHand.setPosition(leftOffset - clawOff);
+    rightHand.setPosition(rightOffset + clawOff);
 }
 
 public void clawOpen(){
-    leftHand.setPosition(Servo.MIN_POSITION + clawOff);
-    rightHand.setPosition(Servo.MAX_POSITION - clawOff);
+    leftHand.setPosition(leftOffset);
+    rightHand.setPosition(rightOffset);
 
 }
 }

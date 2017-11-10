@@ -4,7 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-
 /**
  * Created by vmujoo on 9/21/2017.
  */
@@ -22,7 +21,10 @@ public class TeleOpReal extends OpMode{
     double clawPos = 0.0d;
     double arm1Pos = 0.0d;
     double slidePos = 0.0d;
+    int height = 0;
     boolean mode = false;
+    boolean armMode = false;
+    boolean control = false;
     @Override
     public void init() {
         //Init all RobotParts
@@ -39,33 +41,25 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-
+        glyphArm.time.reset();
     }
     @Override
     public void loop() {
-        //GlyphArm part
-        if(gamepad2.right_stick_y < 0){
 
-            linearSp = 0.5;
-        }else if(gamepad2.right_stick_y > 0){
-            linearSp = -0.5;
-        }else{
-            linearSp = 0;
+        //Modes
+        if(gamepad1.a){
+            mode = false;
+        }else if(gamepad1.y){
+            mode = true;
         }
-        glyphArm.moveUpOrDown(linearSp);
 
-        if(gamepad2.left_bumper){
-            glyphArm.clawClose();
-        }else if(gamepad2.right_bumper){
-            glyphArm.clawOpen();
+        if(gamepad2.x) {
+            armMode = false;
+        }else if(gamepad2.b){
+            armMode = true;
         }
 
         //Drive Part
-        if(gamepad1.y){
-            mode = false;
-        }else if(gamepad1.a){
-            mode = true;
-        }
         if(mode == false) {
             speed = -gamepad1.right_stick_y;
         }else{
@@ -76,31 +70,74 @@ public class TeleOpReal extends OpMode{
 
         drive.move(speed, offset);
 
-        if(gamepad2.left_stick_y <0){
+        //GlyphArm part
 
-            slidePos = 0.5d;
-        }else if(gamepad2.left_stick_y >0 ) {
+        if(armMode == false) {
+            if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
+                linearSp = 1;
+                control = true;
+                glyphArm.time.reset();
+                height++;
+            } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
+                linearSp = -1;
+                control = true;
+                glyphArm.time.reset();
+                height--;
+            }
 
-            slidePos = -0.5d;
-        }else{
-            slidePos = 0;
+            if(gamepad2.left_stick_y < 0){
+                linearSp = 0.3;
+            }else if(gamepad2.left_stick_y > 0){
+                linearSp = -0.3;
+            }else if(glyphArm.time.seconds() > 0.4){
+                control = false;
+                linearSp = 0;
+            }
+            glyphArm.moveUpOrDown(linearSp);
+
+            if (gamepad2.right_trigger > 0) {
+                glyphArm.clawOpen();
+            } else if (gamepad2.left_trigger > 0) {
+                glyphArm.clawClose();
+            }
         }
+
         //Relic Arm Part
+        if(armMode == true) {
+            if (gamepad2.right_stick_y < 0) {
+                slidePos = -1d;
+            } else if (gamepad2.right_stick_y > 0) {
+                slidePos = 1d;
+            } else {
+                slidePos = 0;
+            }
 
-        if(gamepad2.right_trigger>0) {
-            clawPos += 0.01d;
-        }
+            if (gamepad2.right_trigger > 0) {
+                clawPos += 0.01d;
+            }
 
-        if(gamepad2.left_trigger>0) {
-            clawPos -= 0.01d;
+            if (gamepad2.left_trigger > 0) {
+                clawPos -= 0.01d;
 
-        }
+            }
+            if (arm1Pos > 1) {
+                arm1Pos = 1;
+            } else if (arm1Pos < -1) {
+                arm1Pos = -1;
+            }
 
-        if(gamepad2.x) {
-            arm1Pos += 0.01d;
-        }
-        if(gamepad2.b) {
-            arm1Pos -= 0.01d;
+            if (clawPos > 1) {
+                clawPos = 1;
+            } else if (clawPos < -1) {
+                clawPos = -1;
+            }
+
+            if (gamepad2.a) {
+                arm1Pos += 0.01d;
+            }
+            if (gamepad2.y) {
+                arm1Pos -= 0.01d;
+            }
         }
 
         arm.RelicExt(slidePos);
@@ -110,19 +147,14 @@ public class TeleOpReal extends OpMode{
         //Sending messages
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
-        // telemetry.addData("Offset",offset);
-        telemetry.addData("UpTime", arm.Uptime);
-
+        telemetry.addData("time",glyphArm.time.seconds());
+        telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 
-        try {
-            Thread.sleep(1);
-        }catch (Exception InterruptedException){
-
-        }
 
     }
     @Override
     public void stop() {
     }
+
 }

@@ -14,10 +14,7 @@ public class DriveTrain {
     DcMotor  rightBack  = null;
     double speed;
     double offset;
-
     HardwareMap hwMap = null;
-    private ElapsedTime period  = new ElapsedTime();
-
     public DriveTrain(){
 
     }
@@ -47,11 +44,5 @@ public class DriveTrain {
         leftBack.setPower(speed-offset);
         rightBack.setPower(speed+offset);
     }
-
-
-
-
-
-
 
 }
