@@ -1,12 +1,17 @@
 package org.techtonicgears.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
 
-@TeleOp(name = "TeleOp: Real")
-public class TeleOpReal extends OpMode{
+/**
+ * Created by vmujoo on 9/21/2017.
+ */
+@TeleOp(name = "TeleOp: Set")
+@Disabled
+public class TeleOpSet extends OpMode{
     //All RobotParts
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
@@ -42,7 +47,6 @@ public class TeleOpReal extends OpMode{
     public void loop() {
         //GlyphArm part
         if(gamepad2.right_stick_y < 0){
-
             linearSp = 0.5;
         }else if(gamepad2.right_stick_y > 0){
             linearSp = -0.5;
@@ -52,9 +56,9 @@ public class TeleOpReal extends OpMode{
         glyphArm.moveUpOrDown(linearSp);
 
         if(gamepad2.left_bumper){
-            glyphArm.clawClose();
-        }else if(gamepad2.right_bumper){
             glyphArm.clawOpen();
+        }else if(gamepad2.right_bumper){
+            glyphArm.clawClose();
         }
 
         //Drive Part
@@ -74,10 +78,8 @@ public class TeleOpReal extends OpMode{
         drive.move(speed, offset);
 
         if(gamepad2.left_stick_y <0){
-
             slidePos = 0.5d;
-        }else if(gamepad2.left_stick_y >0 ) {
-
+        }else if(gamepad2.left_stick_y >0) {
             slidePos = -0.5d;
         }else{
             slidePos = 0;
@@ -108,8 +110,7 @@ public class TeleOpReal extends OpMode{
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
         // telemetry.addData("Offset",offset);
-        telemetry.addData("UpTime", arm.Uptime);
-
+//        telemetry.addData("UpTime", glyphArm);
         telemetry.update();
 
         try {
