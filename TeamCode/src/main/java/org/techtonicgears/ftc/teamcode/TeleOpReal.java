@@ -11,6 +11,7 @@ public class TeleOpReal extends OpMode{
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     RelicArm  arm = new RelicArm();
+    JewelArm jewel = new JewelArm();
 
     //Variables
     double linearSp = 0.0d;
@@ -30,6 +31,7 @@ public class TeleOpReal extends OpMode{
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
         arm.init(hardwareMap);
+        jewel.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
@@ -44,6 +46,8 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void loop() {
+        //Jewel arm up
+        jewel.setJewelArm(0);
 
         //Modes
         if(gamepad1.a){
