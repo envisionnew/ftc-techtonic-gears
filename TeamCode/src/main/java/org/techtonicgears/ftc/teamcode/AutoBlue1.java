@@ -4,7 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.*;
 import com.qualcomm.robotcore.util.*;
 import com.qualcomm.robotcore.hardware.*;
 
-@Disabled
 @Autonomous(name = "AutoBlue1")
 public class AutoBlue1 extends LinearOpMode {
     DriveTrain driveTrain = new DriveTrain();

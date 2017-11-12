@@ -59,7 +59,7 @@ public class AutoData extends OpMode{
                 timer.reset();
                 drive.move(power, dif);
                 control = true;
-            } else if (gamepad1.b && control == true) {
+            } else if (gamepad1.y && control == true) {
                 drive.move(0, 0);
                 data[pos] = timer.seconds();
                 control = false;
