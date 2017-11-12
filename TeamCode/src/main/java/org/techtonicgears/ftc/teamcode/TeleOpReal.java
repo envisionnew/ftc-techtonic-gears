@@ -48,13 +48,15 @@ public class TeleOpReal extends OpMode{
         //Jewel set up
         jewel.setJewelArm(0);
 
-        //Modes
+        //Modes to make gamepad control easier
+        //driving changes for changing front/back of the bot
         if(gamepad1.a){
             mode = false;
         }else if(gamepad1.y){
             mode = true;
         }
 
+        //x is for glyph controls, b is for relic controls
         if(gamepad2.x) {
             armMode = false;
         }else if(gamepad2.b){
@@ -73,7 +75,7 @@ public class TeleOpReal extends OpMode{
         drive.move(speed, offset);
 
         //GlyphArm part
-
+        // for moving up and down by about a glyph length
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 1;
@@ -86,6 +88,7 @@ public class TeleOpReal extends OpMode{
                 glyphArm.time.reset();
                 height--;
             }
+            //moving with minor change for precision
 
             if(gamepad2.left_stick_y < 0){
                 linearSp = 0.3;
@@ -106,6 +109,7 @@ public class TeleOpReal extends OpMode{
 
         //Relic Arm Part
         if(armMode == true) {
+            //extending part of the relic arm
             if (gamepad2.right_stick_y < 0) {
                 slidePos = -1d;
             } else if (gamepad2.right_stick_y > 0) {
@@ -113,6 +117,7 @@ public class TeleOpReal extends OpMode{
             } else {
                 slidePos = 0;
             }
+            //claw for grabbing the relic
 
             if (gamepad2.right_trigger > 0) {
                 clawPos += 0.01d;
@@ -122,6 +127,7 @@ public class TeleOpReal extends OpMode{
                 clawPos -= 0.01d;
 
             }
+            //lifting up the relic after picking it up to clear the wall
             if (arm1Pos > 1) {
                 arm1Pos = 1;
             } else if (arm1Pos < -1) {
@@ -141,7 +147,7 @@ public class TeleOpReal extends OpMode{
                 arm1Pos -= 0.01d;
             }
         }
-
+        //moving relic
         arm.RelicExt(slidePos);
         arm.ClawMove(arm.relicClaw_ST+clawPos);
         arm.ArmMove(arm.relicArm1_ST+arm1Pos);
