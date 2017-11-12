@@ -24,7 +24,6 @@ public class TeleOpReal extends OpMode{
     boolean mode = false;
     boolean armMode = false;
     boolean control = false;
-
     @Override
     public void init() {
         //Init all RobotParts
@@ -46,7 +45,7 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void loop() {
-        //Jewel arm up
+        //Jewel set up
         jewel.setJewelArm(0);
 
         //Modes

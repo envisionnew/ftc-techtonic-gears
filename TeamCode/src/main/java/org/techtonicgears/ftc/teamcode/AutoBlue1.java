@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.*;
 import com.qualcomm.robotcore.util.*;
 import com.qualcomm.robotcore.hardware.*;
 
-
+@Disabled
 @Autonomous(name = "AutoBlue1")
 public class AutoBlue1 extends LinearOpMode {
     DriveTrain driveTrain = new DriveTrain();
@@ -43,7 +43,7 @@ public class AutoBlue1 extends LinearOpMode {
         //drop jewel arm so color sensor can detect
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 2) {
-            jewelArm.setJewelArm(0.45);
+            jewelArm.setJewelArm(0.95);
             //returns which color the jewel is
             if (colorSensor.red() > colorSensor.blue()) {
                 foundColor = "red";
@@ -57,7 +57,7 @@ public class AutoBlue1 extends LinearOpMode {
         //checks if the color the jewel it detects is same as team color
         if (teamColor == foundColor) {
             while (opModeIsActive() && runtime.seconds() < 0.5) {
-                jewelArm.setJewelArm(0.45);
+                jewelArm.setJewelArm(0.95);
                 //moves and pushes the other jewel
                 driveTrain.move(0.1, 0);
             }
@@ -69,7 +69,7 @@ public class AutoBlue1 extends LinearOpMode {
 
         } else {
             while (opModeIsActive() && runtime.seconds() < 0.5) {
-                jewelArm.setJewelArm(0.45);
+                jewelArm.setJewelArm(0.95);
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);
             }
