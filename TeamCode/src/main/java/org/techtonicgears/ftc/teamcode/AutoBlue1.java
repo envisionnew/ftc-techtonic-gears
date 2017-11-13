@@ -85,29 +85,32 @@ public class AutoBlue1 extends LinearOpMode {
             }
         }
             //move to crypto
+        //curve to the right
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.85)) {
             driveTrain.move(0.2, 0.3);
         }
+        //curve towards the left to straighten out the positioning
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.55) {
             driveTrain.move(0.2, -0.3);
         }
+        //open the claw to release the glyph
         glyphArm.clawClose();
+        //move straight into the crypto box to place the glyph inside
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 1) {
             driveTrain.move(0.5, 0.0);
         }
+        //open just in case again
         glyphArm.clawClose();
+
         //To stop the drive train
-
-
-        //turn towards crypto box
-
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 1) {
             driveTrain.move(0.0, 0.0);
         }
+        //to move back a little
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.5) {
             driveTrain.move(-0.1, 0.0);
