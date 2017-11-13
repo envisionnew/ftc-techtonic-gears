@@ -7,10 +7,12 @@ import com.qualcomm.robotcore.hardware.*;
 
 @Autonomous(name = "AutoBlue2")
 public class AutoBlue2 extends LinearOpMode {
+    //define the parts that will be moving
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     JewelArm jewelArm = new JewelArm();
     private ElapsedTime runtime = new ElapsedTime();
+    //color of the team
     java.lang.String teamColor = "blue";
     java.lang.String foundColor = null;
     ColorSensor colorSensor;
@@ -66,7 +68,7 @@ public class AutoBlue2 extends LinearOpMode {
                 jewelArm.setJewelArm(0);
             }
 
-
+        // if the color of the jewel is not the same as the color of the team
         } else {
             while (opModeIsActive() && runtime.seconds() < 0.5) {
                 jewelArm.setJewelArm(0.65);
@@ -80,6 +82,7 @@ public class AutoBlue2 extends LinearOpMode {
                 driveTrain.move(0.2, 0);
             }
             runtime.reset();
+            //helps reposition
             while (opModeIsActive() && runtime.seconds() < 0.3) {
                 jewelArm.setJewelArm(0);
                 driveTrain.move(0, 0.15);
