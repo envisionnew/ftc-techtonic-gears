@@ -15,9 +15,7 @@ public class DriveTrain {
     double speed;
     double offset;
     HardwareMap hwMap = null;
-    public DriveTrain(){
 
-    }
     public void init(HardwareMap Map) {
         hwMap = Map;
         leftFront = hwMap.get(DcMotor.class, "front_left");
@@ -44,5 +42,6 @@ public class DriveTrain {
         leftBack.setPower(speed-offset);
         rightBack.setPower(speed+offset);
     }
+
 
 }
