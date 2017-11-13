@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.util.*;
 import com.qualcomm.robotcore.hardware.*;
 
 
-@Autonomous(name = "AutoBlue1")
-public class AutoBlue1 extends LinearOpMode {
+@Autonomous(name = "AutoBlue2")
+public class AutoBlue2 extends LinearOpMode {
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     JewelArm jewelArm = new JewelArm();
@@ -73,10 +73,11 @@ public class AutoBlue1 extends LinearOpMode {
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);
             }
+           //move to regain back to the same position
             runtime.reset();
             while (opModeIsActive() && runtime.seconds() < 1) {
                 jewelArm.setJewelArm(0);
-                driveTrain.move(0.35, 0);
+                driveTrain.move(0.2, 0);
             }
             runtime.reset();
             while (opModeIsActive() && runtime.seconds() < 0.3) {
@@ -84,19 +85,20 @@ public class AutoBlue1 extends LinearOpMode {
                 driveTrain.move(0, 0.15);
             }
         }
-            //move to crypto
+        /////////////
+        //move to crypto
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.85)) {
-            driveTrain.move(0.2, 0.3);
+        while (opModeIsActive() && (runtime.seconds() < 1.45)) {
+            driveTrain.move(0.1, 0);
         }
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 0.55) {
-            driveTrain.move(0.2, -0.3);
+        while (opModeIsActive() && runtime.seconds() < 2.4) {
+            driveTrain.move(0.0, -0.1);
         }
         glyphArm.clawClose();
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 1) {
-            driveTrain.move(0.5, 0.0);
+            driveTrain.move(0.1, 0.0);
         }
         glyphArm.clawClose();
         //To stop the drive train
