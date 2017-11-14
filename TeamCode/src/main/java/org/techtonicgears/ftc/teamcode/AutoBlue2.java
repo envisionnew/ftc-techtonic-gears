@@ -77,9 +77,9 @@ public class AutoBlue2 extends LinearOpMode {
             }
            //move to regain back to the same position
             runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1) {
+            while (opModeIsActive() && runtime.seconds() < 1.05) {
                 jewelArm.setJewelArm(0);
-                driveTrain.move(0.2, 0);
+                driveTrain.move(0.45, 0);
             }
             runtime.reset();
             //helps reposition
@@ -91,23 +91,24 @@ public class AutoBlue2 extends LinearOpMode {
         /////////////
         //move to crypto
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.45)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.2)) {
             driveTrain.move(0.1, 0);
         }
+        //turn to crypto box
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 2.4) {
+        while (opModeIsActive() && runtime.seconds() < 2.5) {
             driveTrain.move(0.0, -0.1);
         }
+        //open claw
         glyphArm.clawClose();
         runtime.reset();
+        //move in all the way
         while (opModeIsActive() && runtime.seconds() < 1) {
             driveTrain.move(0.1, 0.0);
         }
         glyphArm.clawClose();
         //To stop the drive train
 
-
-        //turn towards crypto box
 
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 1) {
