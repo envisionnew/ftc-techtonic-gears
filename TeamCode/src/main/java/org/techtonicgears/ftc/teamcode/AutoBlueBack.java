@@ -5,12 +5,14 @@ import com.qualcomm.robotcore.util.*;
 import com.qualcomm.robotcore.hardware.*;
 
 
-@Autonomous(name = "AutoBlue1")
-public class AutoBlue1 extends LinearOpMode {
+@Autonomous(name = "AutoBlueBack")
+public class AutoBlueBack extends LinearOpMode {
+    //define the parts that will be moving
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     JewelArm jewelArm = new JewelArm();
     private ElapsedTime runtime = new ElapsedTime();
+    //color of the team
     java.lang.String teamColor = "blue";
     java.lang.String foundColor = null;
     ColorSensor colorSensor;
@@ -66,51 +68,52 @@ public class AutoBlue1 extends LinearOpMode {
                 jewelArm.setJewelArm(0);
             }
 
-
+            // if the color of the jewel is not the same as the color of the team
         } else {
             while (opModeIsActive() && runtime.seconds() < 0.5) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);
             }
+            //move to regain back to the same position
             runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1) {
+            while (opModeIsActive() && runtime.seconds() < 1.05) {
                 jewelArm.setJewelArm(0);
-                driveTrain.move(0.35, 0);
+                driveTrain.move(0.45, 0);
             }
             runtime.reset();
+            //helps reposition
             while (opModeIsActive() && runtime.seconds() < 0.3) {
                 jewelArm.setJewelArm(0);
                 driveTrain.move(0, 0.15);
             }
         }
-            //move to crypto
-        //curve to the right
+        /////////////
+        //move to crypto
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.85)) {
-            driveTrain.move(0.2, 0.3);
+        while (opModeIsActive() && (runtime.seconds() < 1.2)) {
+            driveTrain.move(0.1, 0);
         }
-        //curve towards the left to straighten out the positioning
+        //turn to crypto box
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 0.55) {
-            driveTrain.move(0.2, -0.3);
+        while (opModeIsActive() && runtime.seconds() < 2.5) {
+            driveTrain.move(0.0, -0.1);
         }
-        //open the claw to release the glyph
+        //open claw
         glyphArm.clawClose();
-        //move straight into the crypto box to place the glyph inside
         runtime.reset();
+        //move in all the way
         while (opModeIsActive() && runtime.seconds() < 1) {
-            driveTrain.move(0.5, 0.0);
+            driveTrain.move(0.1, 0.0);
         }
-        //open just in case again
         glyphArm.clawClose();
-
         //To stop the drive train
+
+
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 1) {
             driveTrain.move(0.0, 0.0);
         }
-        //to move back a little
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.5) {
             driveTrain.move(-0.1, 0.0);

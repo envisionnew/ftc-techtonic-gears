@@ -5,15 +5,15 @@ import com.qualcomm.robotcore.util.*;
 import com.qualcomm.robotcore.hardware.*;
 
 
-@Autonomous(name = "AutoBlue2")
-public class AutoBlue2 extends LinearOpMode {
+@Autonomous(name = "AutoRedFront")
+public class AutoRedFront extends LinearOpMode {
     //define the parts that will be moving
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     JewelArm jewelArm = new JewelArm();
     private ElapsedTime runtime = new ElapsedTime();
     //color of the team
-    java.lang.String teamColor = "blue";
+    java.lang.String teamColor = "red";
     java.lang.String foundColor = null;
     ColorSensor colorSensor;
 
@@ -35,6 +35,7 @@ public class AutoBlue2 extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive() && (runtime.seconds() < 0.4)) {
+            glyphArm.clawClose();
             telemetry.addData("Elapsed ", runtime.seconds());
             telemetry.update();
         }
@@ -58,66 +59,41 @@ public class AutoBlue2 extends LinearOpMode {
         runtime.reset();
         //checks if the color the jewel it detects is same as team color
         if (teamColor == foundColor) {
-            while (opModeIsActive() && runtime.seconds() < 0.5) {
+            while (opModeIsActive() && runtime.seconds() < 0.6) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes the other jewel
                 driveTrain.move(0.1, 0);
             }
             runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1) {
+            while (opModeIsActive() && runtime.seconds() < 1.5) {
                 jewelArm.setJewelArm(0);
+                driveTrain.move(-0.2, 0);
             }
-
-        // if the color of the jewel is not the same as the color of the team
+            // if the color of the jewel is not the same as the color of the team
         } else {
             while (opModeIsActive() && runtime.seconds() < 0.5) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);
             }
-           //move to regain back to the same position
             runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1.05) {
+            while (opModeIsActive() && runtime.seconds() < 1.1) {
                 jewelArm.setJewelArm(0);
-                driveTrain.move(0.45, 0);
-            }
-            runtime.reset();
-            //helps reposition
-            while (opModeIsActive() && runtime.seconds() < 0.3) {
-                jewelArm.setJewelArm(0);
-                driveTrain.move(0, 0.15);
+                driveTrain.move(-0.1, 0);
             }
         }
-        /////////////
-        //move to crypto
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.2)) {
-            driveTrain.move(0.1, 0);
+        while (opModeIsActive() && runtime.seconds() < 1.6) {
+            driveTrain.move(0, -0.1);
         }
-        //turn to crypto box
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 2.5) {
-            driveTrain.move(0.0, -0.1);
+        while (opModeIsActive() && runtime.seconds() < 1.6) {
+            driveTrain.move(-0.1, -0.1);
         }
-        //open claw
-        glyphArm.clawClose();
-        runtime.reset();
-        //move in all the way
-        while (opModeIsActive() && runtime.seconds() < 1) {
-            driveTrain.move(0.1, 0.0);
-        }
-        glyphArm.clawClose();
-        //To stop the drive train
-
-
-        runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 1) {
-            driveTrain.move(0.0, 0.0);
-        }
+        glyphArm.clawOpen();
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.5) {
-            driveTrain.move(-0.1, 0.0);
+            driveTrain.move(1, 0);
         }
-
     }
 }
