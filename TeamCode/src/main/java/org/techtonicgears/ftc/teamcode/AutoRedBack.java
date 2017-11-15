@@ -94,20 +94,21 @@ public class AutoRedBack extends LinearOpMode {
         /////////////
         //move backwards to crypto
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.75)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.35)) {
             driveTrain.move(-0.1, 0);
         }
         //turn to crypto box
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 2.0) {
+        while (opModeIsActive() && runtime.seconds() < 2.15) {
             driveTrain.move(0.0, -0.1);
         }
         //open claw
         glyphArm.clawClose();
+
         runtime.reset();
         //move in all the way
         while (opModeIsActive() && runtime.seconds() < 1) {
-            driveTrain.move(0.1, 0.0);
+            driveTrain.move(0.5, 0.0);
         }
         glyphArm.clawClose();
         //To stop the drive train
