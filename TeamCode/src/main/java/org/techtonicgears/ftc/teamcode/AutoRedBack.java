@@ -106,7 +106,7 @@ public class AutoRedBack extends LinearOpMode {
         glyphArm.clawClose();
 
         runtime.reset();
-        //move in all the way
+        //move in all the way `
         while (opModeIsActive() && runtime.seconds() < 1) {
             driveTrain.move(0.5, 0.0);
         }

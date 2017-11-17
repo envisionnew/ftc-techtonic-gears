@@ -35,7 +35,6 @@ public class AutoRedFront extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive() && (runtime.seconds() < 0.4)) {
-            glyphArm.clawClose();
             telemetry.addData("Elapsed ", runtime.seconds());
             telemetry.update();
         }
@@ -83,17 +82,25 @@ public class AutoRedFront extends LinearOpMode {
             }
         }
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 1.6) {
-            driveTrain.move(0, -0.1);
+        while (opModeIsActive() && runtime.seconds() < 0.5) {
+            driveTrain.move(0, -0.5);
         }
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 1.6) {
+        while (opModeIsActive() && runtime.seconds() < 1.75) {
             driveTrain.move(-0.1, -0.1);
         }
-        glyphArm.clawOpen();
+        glyphArm.clawClose();
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.5) {
-            driveTrain.move(1, 0);
+            driveTrain.move(0.7, 0);
+        }
+        runtime.reset();
+        while (opModeIsActive() && runtime.seconds() < 0.5) {
+
+        }
+        runtime.reset();
+        while (opModeIsActive() && runtime.seconds() < 0.05) {
+            driveTrain.move(-0.1, 0);
         }
     }
 }
