@@ -1,7 +1,8 @@
 package org.techtonicgears.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.util.*;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @TeleOp(name = "AutoData")
@@ -27,27 +28,25 @@ public class AutoData extends OpMode{
         telemetry.addData("", "Press Start");
         telemetry.update();
     }
+
     @Override
     public void init_loop(){
     }
     @Override
     public void start() {
-        timer.reset();
-        moveSec(0.65,0.1,0);
+        glyphArm.clawClose();
     }
     @Override
     public void loop() {
         if(counter == 0) {
-            recordMove(0.1, 0, 0);
+            recordMove(-0.1, 0, 0);
         }else if(counter == 1) {
-            recordMove(0, 0.1, 1);
+            recordMove(0, -0.1, 1);
         }else if(counter == 2) {
-            recordMove(0.1, 0, 2);
-        }else if(counter == 3) {
-            recordMove(0, -0.1, 3);
-        }else if(counter == 4) {
-            recordMove(0.1, 0, 4);
-        }else{}
+            recordMove(-0.1, -0.1, 2);
+        }else if(counter == 3){
+            recordMove(0.1, 0, 3);
+        }
         printData();
 
     }
