@@ -26,8 +26,8 @@ public void init(HardwareMap Map) {
 
     verticalMotor.setDirection(DcMotor.Direction.FORWARD);
     verticalMotor.setPower(0);
-    leftHand.setPosition(leftOffset);
-    rightHand.setPosition(rightOffset);
+    //leftHand.setPosition(leftOffset);
+    //rightHand.setPosition(rightOffset);
 }
 
 public void getPosition(Telemetry telemetry){

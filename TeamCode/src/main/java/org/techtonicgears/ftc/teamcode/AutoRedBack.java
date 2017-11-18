@@ -11,6 +11,7 @@ public class AutoRedBack extends LinearOpMode {
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     JewelArm jewelArm = new JewelArm();
+    RelicArm arm = new RelicArm();
     private ElapsedTime runtime = new ElapsedTime();
     //color of the team
     java.lang.String teamColor = "red";
@@ -20,17 +21,18 @@ public class AutoRedBack extends LinearOpMode {
     @Override
     public void runOpMode() {
         //Initializing and performing init methods
+
+
+        //waiting for user to press start
+        waitForStart();
         glyphArm.init(hardwareMap);
         driveTrain.init(hardwareMap);
         jewelArm.init(hardwareMap);
         colorSensor = hardwareMap.colorSensor.get("color");
 
-        //waiting for user to press start
-        waitForStart();
-
 
         //moving off the balance beam with glyph secured in claw
-        //glyphArm.clawClose();
+        glyphArm.clawOpen();
         glyphArm.moveUpOrDown(0.2);
         runtime.reset();
 

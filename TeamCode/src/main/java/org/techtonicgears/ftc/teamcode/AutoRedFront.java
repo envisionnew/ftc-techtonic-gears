@@ -20,17 +20,19 @@ public class AutoRedFront extends LinearOpMode {
     @Override
     public void runOpMode() {
         //Initializing and performing init methods
+
+
+        //waiting for user to press start
+        waitForStart();
         glyphArm.init(hardwareMap);
         driveTrain.init(hardwareMap);
         jewelArm.init(hardwareMap);
         colorSensor = hardwareMap.colorSensor.get("color");
 
-        //waiting for user to press start
-        waitForStart();
 
 
         //moving off the balance beam with glyph secured in claw
-        //glyphArm.clawClose();
+        glyphArm.clawOpen();
         glyphArm.moveUpOrDown(0.2);
         runtime.reset();
 

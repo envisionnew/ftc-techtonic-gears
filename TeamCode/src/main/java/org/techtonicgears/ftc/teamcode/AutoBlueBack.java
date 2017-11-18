@@ -63,10 +63,7 @@ public class AutoBlueBack extends LinearOpMode {
                 //moves and pushes the other jewel
                 driveTrain.move(0.1, 0);
             }
-            runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1) {
-                jewelArm.setJewelArm(0);
-            }
+
 
             // if the color of the jewel is not the same as the color of the team
         } else {
@@ -92,6 +89,7 @@ public class AutoBlueBack extends LinearOpMode {
         //move to crypto
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.1)) {
+            jewelArm.setJewelArm(0);
             driveTrain.move(0.1, 0);
         }
         //turn to crypto box
