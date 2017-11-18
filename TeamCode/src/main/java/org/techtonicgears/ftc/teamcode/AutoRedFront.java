@@ -82,7 +82,7 @@ public class AutoRedFront extends LinearOpMode {
             }
         }
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 0.5) {
+        while (opModeIsActive() && runtime.seconds() < 0.4) {
             driveTrain.move(0, -0.5);
         }
         runtime.reset();
