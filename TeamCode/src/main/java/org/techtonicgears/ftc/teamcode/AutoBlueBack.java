@@ -91,20 +91,20 @@ public class AutoBlueBack extends LinearOpMode {
         /////////////
         //move to crypto
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.2)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.1)) {
             driveTrain.move(0.1, 0);
         }
         //turn to crypto box
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 2.5) {
-            driveTrain.move(0.0, -0.1);
+        while (opModeIsActive() && runtime.seconds() < 1) {
+            driveTrain.move(0.0, -0.2);
         }
         //open claw
         glyphArm.clawClose();
         runtime.reset();
         //move in all the way
         while (opModeIsActive() && runtime.seconds() < 1) {
-            driveTrain.move(0.1, 0.0);
+            driveTrain.move(0.5, 0.0);
         }
         glyphArm.clawClose();
         //To stop the drive train

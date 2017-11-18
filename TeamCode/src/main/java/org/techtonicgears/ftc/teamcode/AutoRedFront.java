@@ -13,8 +13,8 @@ public class AutoRedFront extends LinearOpMode {
     JewelArm jewelArm = new JewelArm();
     private ElapsedTime runtime = new ElapsedTime();
     //color of the team
-    java.lang.String teamColor = "red";
-    java.lang.String foundColor = null;
+    String teamColor = "red";
+    String foundColor = null;
     ColorSensor colorSensor;
 
     @Override
