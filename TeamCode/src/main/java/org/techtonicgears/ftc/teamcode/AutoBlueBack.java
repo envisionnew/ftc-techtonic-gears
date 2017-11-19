@@ -58,7 +58,7 @@ public class AutoBlueBack extends LinearOpMode {
         runtime.reset();
         //checks if the color the jewel it detects is same as team color
         if (teamColor == foundColor) {
-            while (opModeIsActive() && runtime.seconds() < 0.5) {
+            while (opModeIsActive() && runtime.seconds() < 0.7) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes the other jewel
                 driveTrain.move(0.1, 0);
@@ -67,7 +67,7 @@ public class AutoBlueBack extends LinearOpMode {
 
             // if the color of the jewel is not the same as the color of the team
         } else {
-            while (opModeIsActive() && runtime.seconds() < 0.5) {
+            while (opModeIsActive() && runtime.seconds() < 0.7) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);

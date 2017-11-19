@@ -61,15 +61,10 @@ public class AutoRedBack extends LinearOpMode {
         //checks if the color the jewel it detects is same as team color
         if (teamColor == foundColor) {
             //moves the jewel arm down and moves forward to knock off the other jewel
-            while (opModeIsActive() && runtime.seconds() < 0.65) {
+            while (opModeIsActive() && runtime.seconds() < 0.7) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes the other jewel
                 driveTrain.move(0.1, 0);
-            }
-            //resets the jewel arm
-            runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1) {
-                jewelArm.setJewelArm(0);
             }
             //move back to regain back to the same position
             runtime.reset();
@@ -80,16 +75,11 @@ public class AutoRedBack extends LinearOpMode {
 
             // if the color of the jewel is not the same as the color of the team
         } else {
-            while (opModeIsActive() && runtime.seconds() < 0.4) {
+            while (opModeIsActive() && runtime.seconds() < 0.7) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off
                 // same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);
-            }
-            //reset the jewel arm to natural position
-            runtime.reset();
-            while (opModeIsActive() && runtime.seconds() < 1) {
-                jewelArm.setJewelArm(0);
             }
 
         }
@@ -97,6 +87,7 @@ public class AutoRedBack extends LinearOpMode {
         //move backwards to crypto
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.1)) {
+            jewelArm.setJewelArm(0);
             driveTrain.move(-0.1, 0);
         }
         //turn to crypto box

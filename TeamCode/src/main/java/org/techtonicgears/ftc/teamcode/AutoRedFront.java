@@ -60,7 +60,7 @@ public class AutoRedFront extends LinearOpMode {
         runtime.reset();
         //checks if the color the jewel it detects is same as team color
         if (teamColor == foundColor) {
-            while (opModeIsActive() && runtime.seconds() < 0.6) {
+            while (opModeIsActive() && runtime.seconds() < 0.7) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes the other jewel
                 driveTrain.move(0.1, 0);
@@ -72,7 +72,7 @@ public class AutoRedFront extends LinearOpMode {
             }
             // if the color of the jewel is not the same as the color of the team
         } else {
-            while (opModeIsActive() && runtime.seconds() < 0.5) {
+            while (opModeIsActive() && runtime.seconds() < 0.7) {
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(-0.1, 0);
@@ -84,8 +84,9 @@ public class AutoRedFront extends LinearOpMode {
             }
         }
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 0.4) {
+        while (opModeIsActive() && runtime.seconds() < 0.7) {
             driveTrain.move(0, -0.5);
+
         }
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 1.75) {
