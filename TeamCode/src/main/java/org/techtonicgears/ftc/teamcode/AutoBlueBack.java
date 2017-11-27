@@ -19,14 +19,14 @@ public class AutoBlueBack extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+
+        //waiting for user to press start
+        waitForStart();
         //Initializing and performing init methods
         glyphArm.init(hardwareMap);
         driveTrain.init(hardwareMap);
         jewelArm.init(hardwareMap);
         colorSensor = hardwareMap.colorSensor.get("color");
-
-        //waiting for user to press start
-        waitForStart();
 
 
         //moving off the balance beam with glyph secured in claw
