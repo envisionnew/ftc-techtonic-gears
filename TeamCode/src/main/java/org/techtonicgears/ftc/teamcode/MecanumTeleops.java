@@ -1,5 +1,8 @@
 package org.techtonicgears.ftc.teamcode;
 
+/**
+ * Created by ritali on 12/19/17.
+ */
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -7,10 +10,10 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 //@Disabled
-@TeleOp(name = "TeleOp: Real")
-public class TeleOpReal extends OpMode{
+@TeleOp(name = "New TeleOp: Test ")
+public class MecanumTeleops extends OpMode {
     //All RobotParts
-    DriveTrain drive = new DriveTrain();
+    MecanumDriveTrain drive = new MecanumDriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     RelicArm  relicArm = new RelicArm();
     JewelArm jewel = new JewelArm();
@@ -19,11 +22,11 @@ public class TeleOpReal extends OpMode{
     double linearSp = 0.0d; //for glyph arm up/down movement
     double speed = 0.0d; //for drive forward speed
     double offset = 0.0d; //for drive turning
+    double strafe = 0.0d;
     double clawPos = 0.0d; //relic claw position
     double arm1Pos = 0.0d; //the relic arm up/down pos
     double slidePos = 0.0d; //relic arm extend movement
     int height = 0; //height of glyph arm to stop at right height
-    boolean mode = false; //drive mode forward/reverse
     boolean armMode = false; //the mode of arm, relic or glyph
     boolean control = false; //to make sure timer.reset() only happens once
     @Override
@@ -43,7 +46,6 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-
         glyphArm.time.reset();
     }
     @Override
@@ -52,13 +54,6 @@ public class TeleOpReal extends OpMode{
         jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
-        //driving changes for changing front/back of the robot
-        if(gamepad1.a){
-            mode = false;
-        }else if(gamepad1.y){
-            mode = true;
-        }
-
         //x is for glyph controls, b is for relic controls
         if(gamepad2.x) {
             armMode = false;
@@ -67,18 +62,18 @@ public class TeleOpReal extends OpMode{
         }
 
         //Drive Part
-        //switch between negative and positive power
-        if(mode == false) {
-            speed = -gamepad1.right_stick_y;
-        }else{
-            speed = gamepad1.right_stick_y;
-        }
+        speed = -gamepad1.right_stick_y;
         //clip speed to stop too fast power
         speed = Range.clip(speed, -0.5, 0.5);
+
+        strafe = -gamepad1.right_stick_x;
+        strafe = Range.clip(strafe, -0.5, 0.5);
+
         //divide offset by two to control turn
         offset = gamepad1.left_stick_x/2;
 
-        drive.move(speed, offset);
+
+        drive.move(speed, offset, strafe);
 
         //GlyphArm part
         // for moving up and down by about a glyph length
@@ -105,7 +100,7 @@ public class TeleOpReal extends OpMode{
                 linearSp = 0;
             }
             glyphArm.moveUpOrDown(linearSp);
-    // when the triggers are pressed, the claw opens/closes
+            // when the triggers are pressed, the claw opens/closes
             if (gamepad2.right_trigger > 0) {
                 glyphArm.clawOpen();
             } else if (gamepad2.left_trigger > 0) {
@@ -169,5 +164,4 @@ public class TeleOpReal extends OpMode{
     @Override
     public void stop() {
     }
-
 }

@@ -4,6 +4,7 @@ package org.techtonicgears.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -15,6 +16,7 @@ public class GlyphArm {
     double leftOffset = 0.77;
     double rightOffset = 0.28;
     double clawOff = 0.4;
+    ElapsedTime time = new ElapsedTime();
 
 public void init(HardwareMap map) {
     verticalMotor = map.get(DcMotor.class, "glyph_arm");
