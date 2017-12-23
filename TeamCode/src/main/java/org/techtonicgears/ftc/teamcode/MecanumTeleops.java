@@ -74,6 +74,10 @@ public class MecanumTeleops extends OpMode {
 
 
         drive.move(speed, offset, strafe);
+        telemetry.addData("Speed: ", speed);
+        telemetry.addData("Offset: ", offset);
+        telemetry.addData("Strafe: ", strafe);
+        telemetry.update();
 
         //GlyphArm part
         // for moving up and down by about a glyph length
