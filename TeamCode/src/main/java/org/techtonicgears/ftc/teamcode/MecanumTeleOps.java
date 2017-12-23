@@ -73,7 +73,6 @@ public class MecanumTeleOps extends OpMode {
 
 
         drive.move(speed, offset, strafe);
-        leftfront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         //GlyphArm part
         // for moving up and down by about a glyph length
