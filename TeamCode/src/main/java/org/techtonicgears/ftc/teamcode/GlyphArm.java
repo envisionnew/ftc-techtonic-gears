@@ -1,5 +1,7 @@
 package org.techtonicgears.ftc.teamcode;
 
+/*/ Imports /*/
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -9,6 +11,9 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
 public class GlyphArm {
+
+    /*/ Define the motors that are being used in Glyph Arm /*/
+
     private DcMotor verticalMotor;
     private Servo leftHand;
     private Servo rightHand;
