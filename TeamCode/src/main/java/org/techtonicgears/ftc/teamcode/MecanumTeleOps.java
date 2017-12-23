@@ -67,8 +67,9 @@ public class MecanumTeleOps extends OpMode {
 
         strafe = -gamepad1.right_stick_x;
         strafe = Range.clip(strafe, -0.5, 0.5);
+
         //divide offset by two to control turn
-        offset = gamepad1.left_stick_x/2;
+        offset = gamepad1.left_stick_x;
 
 
         drive.move(speed, offset, strafe);
