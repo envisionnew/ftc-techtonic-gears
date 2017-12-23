@@ -3,6 +3,7 @@ package org.techtonicgears.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+
 public class MecanumDriveTrain {
 
     DcMotor leftFront   = null;
@@ -36,10 +37,10 @@ public class MecanumDriveTrain {
     //since it actually shows up as a negative power
     public void move(double speed, double offset, double strafe){
 
-        leftFront.setPower(speed-offset-strafe);
-        rightFront.setPower(speed+offset+strafe);
-        leftBack.setPower(speed-offset+strafe);
-        rightBack.setPower(speed+offset-strafe);
+        leftFront.setPower(speed - offset - strafe);
+        rightFront.setPower(speed + offset + strafe);
+        leftBack.setPower(speed + offset + strafe);
+        rightBack.setPower(speed - offset - strafe);
     }
 
     //strafing is on right joystick x axis along with the regular tank motion of forward and back(y axis)

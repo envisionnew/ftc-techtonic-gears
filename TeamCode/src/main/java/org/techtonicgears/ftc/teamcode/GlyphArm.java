@@ -25,9 +25,9 @@ public class GlyphArm {
 
 public void init(HardwareMap Map) {
     hwMap = Map;
-    verticalMotor = hwMap.get(DcMotor.class, "glyph_arm");
-    leftHand = hwMap.get(Servo.class, "glyph_claw_l");
-    rightHand = hwMap.get(Servo.class, "glyph_claw_r");
+    verticalMotor = hwMap.get(DcMotor.class, "glyphDC");
+    leftHand = hwMap.get(Servo.class, "glyphServoL");
+    rightHand = hwMap.get(Servo.class, "glyphServoR");
 
     verticalMotor.setDirection(DcMotor.Direction.FORWARD);
     verticalMotor.setPower(0);

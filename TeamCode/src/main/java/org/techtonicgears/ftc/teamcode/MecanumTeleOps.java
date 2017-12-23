@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+
 //@Disabled
 @TeleOp(name = "New TeleOp: Test ")
 public class MecanumTeleOps extends OpMode {
@@ -72,17 +73,22 @@ public class MecanumTeleOps extends OpMode {
 
 
         drive.move(speed, offset, strafe);
+        leftfront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         //GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
-                linearSp = 1;
+                linearSp = 0.1;
+                telemetry.addData("Speed", linearSp);
+                telemetry.update();
                 control = true;
                 glyphArm.time.reset();
                 height++;
             } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
-                linearSp = -1;
+                linearSp = -0.1;
+                telemetry.addData("Speed", linearSp);
+                telemetry.update();
                 control = true;
                 glyphArm.time.reset();
                 height--;
@@ -100,13 +106,17 @@ public class MecanumTeleOps extends OpMode {
             glyphArm.moveUpOrDown(linearSp);
             // when the triggers are pressed, the claw opens/closes
             if (gamepad2.right_trigger > 0) {
-                glyphArm.clawOpen();
+                glyphDC.clawOpen();
+                telemetry.addLine("Claw Open");
+                telemetry.update();
             } else if (gamepad2.left_trigger > 0) {
                 glyphArm.clawClose();
+                telemetry.addLine("Claw Close");
+                telemetry.update();
             }
         }
 
-        //Relic Arm Part
+        /*/Relic Arm Part
         if(armMode == true) {
             //extending part of the relic arm
             if (gamepad2.right_stick_y < 0) {
@@ -149,7 +159,7 @@ public class MecanumTeleOps extends OpMode {
         relicArm.RelicExt(slidePos);
         relicArm.ClawMove(relicArm.relicClaw_ST+clawPos);
         relicArm.ArmMove(relicArm.relicArm1_ST+arm1Pos);
-
+/*/
         //Sending messages
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
