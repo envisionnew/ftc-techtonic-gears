@@ -74,7 +74,7 @@ public class MecanumTeleOps extends OpMode {
 
         drive.move(speed, offset, strafe);
 
-        //GlyphArm part
+        /*/GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
@@ -115,6 +115,7 @@ public class MecanumTeleOps extends OpMode {
             }
         }
 
+/*/
         /*/Relic Arm Part
         if(armMode == true) {
             //extending part of the relic arm
