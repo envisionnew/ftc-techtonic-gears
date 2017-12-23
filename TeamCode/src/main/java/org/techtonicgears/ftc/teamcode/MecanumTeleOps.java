@@ -13,9 +13,9 @@ import com.qualcomm.robotcore.util.Range;
 public class MecanumTeleOps extends OpMode {
     //All RobotParts
     MecanumDriveTrain drive = new MecanumDriveTrain();
-    GlyphArm glyphArm = new GlyphArm();
-    RelicArm  relicArm = new RelicArm();
-    JewelArm jewel = new JewelArm();
+    //GlyphArm glyphArm = new GlyphArm();
+   // RelicArm  relicArm = new RelicArm();
+    //JewelArm jewel = new JewelArm();
 
     //Variables
     double linearSp = 0.0d; //for glyph arm up/down movement
@@ -31,10 +31,10 @@ public class MecanumTeleOps extends OpMode {
     @Override
     public void init() {
         //Init all RobotParts
-        glyphArm.init(hardwareMap);
+       // glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
-        relicArm.init(hardwareMap);
-        jewel.init(hardwareMap);
+       // relicArm.init(hardwareMap);
+       // jewel.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
@@ -44,13 +44,13 @@ public class MecanumTeleOps extends OpMode {
     public void init_loop(){
     }
     @Override
-    public void start() {
-        glyphArm.time.reset();
+   public void start() {
+       // glyphArm.time.reset();
     }
     @Override
     public void loop() {
         //Jewel set arm up
-        jewel.setJewelArm(0);
+       // jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
         //x is for glyph controls, b is for relic controls
@@ -69,7 +69,7 @@ public class MecanumTeleOps extends OpMode {
         strafe = Range.clip(strafe, -0.5, 0.5);
 
         //divide offset by two to control turn
-        offset = gamepad1.left_stick_x/2;
+        offset = gamepad1.left_stick_x;
 
 
         drive.move(speed, offset, strafe);
@@ -163,7 +163,6 @@ public class MecanumTeleOps extends OpMode {
         //Sending messages
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
-        telemetry.addData("Time: ",glyphArm.time.seconds());
         telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 
