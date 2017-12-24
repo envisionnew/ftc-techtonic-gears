@@ -34,13 +34,13 @@ public class DriveTrain {
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
-    public void move(double power, double dif){
-        speed = power;
-        offset = dif;
-        leftFront.setPower(speed-offset);
-        rightFront.setPower(speed+offset);
-        leftBack.setPower(speed-offset);
-        rightBack.setPower(speed+offset);
+    //the controls give reverse values, thus, we are subtracting powers in the left to turn right
+    //since it actually shows up as a negative power
+    public void move(double speed, double offset, double strafe){
+        leftFront.setPower(speed-offset-strafe);
+        rightFront.setPower(speed+offset+strafe);
+        leftBack.setPower(speed-offset+strafe);
+        rightBack.setPower(speed+offset-strafe);
     }
 
 
