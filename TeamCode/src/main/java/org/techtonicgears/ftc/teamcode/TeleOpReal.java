@@ -42,7 +42,7 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-        glyphArm.time.reset();
+        glyphArm.timer.reset();
     }
     @Override
     public void loop() {
@@ -69,6 +69,7 @@ public class TeleOpReal extends OpMode{
         if(mode == false) {
             speed = -gamepad1.right_stick_y;
         }else{
+
             speed = gamepad1.right_stick_y;
         }
         //clip speed to stop too fast power
@@ -85,32 +86,29 @@ public class TeleOpReal extends OpMode{
         // for moving up and down by about a glyph length
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
-                linearSp = 1;
-                control = true;
-                //glyphArm.time.reset();
+                linearSp = 0.5;
+                glyphArm.timer.reset();
                 height++;
             } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
-                linearSp = -1;
-                control = true;
-                //glyphArm.time.reset();
+                linearSp = -0.3;
+                glyphArm.timer.reset();
                 height--;
             }
-            //moving with minor change for precision
-
-            if(gamepad2.left_stick_y < 0){
-                linearSp = 0.3;
-            }else if(gamepad2.left_stick_y > 0){
+            if(gamepad2.right_stick_y < 0){
+                linearSp = 0.5;
+            }else if(gamepad2.right_stick_y > 0){
                 linearSp = -0.3;
-            }//else if(glyphArm.time.seconds() > 0.4){
-               // control = false;
-                //linearSp = 0;
-            //}
-            //glyphArm.moveUpOrDown(linearSp);
+                ;
+            }else if(glyphArm.timer.seconds() > 0.4){
+                control = false;
+                linearSp = 0;
+            }
+            glyphArm.moveUpOrDown(linearSp);
 
-            if (gamepad2.right_trigger > 0) {
-                //glyphArm.clawOpen();
-            } else if (gamepad2.left_trigger > 0) {
-                //glyphArm.clawClose();
+            if (gamepad2.left_trigger > 0) {
+                glyphArm.clawOpen();
+            } else if (gamepad2.right_trigger > 0) {
+                glyphArm.clawClose();
             }
         }
 
@@ -162,7 +160,8 @@ public class TeleOpReal extends OpMode{
         //Sending messages
         glyphArm.getPosition(telemetry);
         telemetry.addData("Power",speed);
-        telemetry.addData("time",glyphArm.time.seconds());
+        telemetry.addData("GlyphPower",linearSp);
+        telemetry.addData("time",glyphArm.timer.seconds());
         telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 
