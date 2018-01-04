@@ -1,38 +1,37 @@
 package org.techtonicgears.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-//@Disabled
+
 @TeleOp(name = "TeleOp: Real")
 public class TeleOpReal extends OpMode{
     //All RobotParts
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
-    RelicArm  relicArm = new RelicArm();
-    JewelArm jewel = new JewelArm();
+    //RelicArm  arm = new RelicArm();
+    //JewelArm jewel = new JewelArm();
 
     //Variables
-    double linearSp = 0.0d; //for glyph arm up/down movement
-    double speed = 0.0d; //for drive forward speed
-    double offset = 0.0d; //for drive turning
-    double clawPos = 0.0d; //relic claw position
-    double arm1Pos = 0.0d; //the relic arm up/down pos
-    double slidePos = 0.0d; //relic arm extend movement
-    int height = 0; //height of glyph arm to stop at right height
-    boolean mode = false; //drive mode forward/reverse
-    boolean armMode = false; //the mode of arm, relic or glyph
-    boolean control = false; //to make sure timer.reset() only happens once
+    double linearSp = 0.0d;//for glyph arm up/down movement
+    double speed = 0.0d;//for drive forward speed
+    double strafe = 0.0d; //for strafing
+    double offset = 0.0d;//for drive turning
+    double clawPos = 0.0d;//relic claw position
+    double arm1Pos = 0.0d;//the relic arm up/down pos
+    double slidePos = 0.0d;//relic arm extend movent
+    int height = 0;//hiegth of glyph arm to stop at right height
+    boolean mode = false;//drive mode forward/reverse
+    boolean armMode = false;//the mode of arm, relic or glyph
+    boolean control = false;//to make sure timer.reset() only happens once
     @Override
     public void init() {
         //Init all RobotParts
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
-        relicArm.init(hardwareMap);
-        jewel.init(hardwareMap);
+        //arm.init(hardwareMap);
+        //jewel.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
@@ -43,13 +42,12 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-
-        glyphArm.time.reset();
+        glyphArm.timer.reset();
     }
     @Override
     public void loop() {
         //Jewel set arm up
-        jewel.setJewelArm(0);
+        //jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
         //driving changes for changing front/back of the robot
@@ -71,6 +69,7 @@ public class TeleOpReal extends OpMode{
         if(mode == false) {
             speed = -gamepad1.right_stick_y;
         }else{
+
             speed = gamepad1.right_stick_y;
         }
         //clip speed to stop too fast power
@@ -78,37 +77,37 @@ public class TeleOpReal extends OpMode{
         //divide offset by two to control turn
         offset = gamepad1.left_stick_x/2;
 
-        drive.move(speed, offset);
+        strafe = -gamepad1.right_stick_x;
+        strafe = Range.clip(strafe, -0.5, 0.5);
+
+        drive.move(speed, offset, strafe);
 
         //GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
-                linearSp = 1;
-                control = true;
-                glyphArm.time.reset();
+                linearSp = 0.5;
+                glyphArm.timer.reset();
                 height++;
             } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
-                linearSp = -1;
-                control = true;
-                glyphArm.time.reset();
+                linearSp = -0.3;
+                glyphArm.timer.reset();
                 height--;
             }
-
-            //moving with minor change for precision
-            if(gamepad2.left_stick_y < 0){
-                linearSp = 0.3;
-            }else if(gamepad2.left_stick_y > 0){
+            if(gamepad2.right_stick_y < 0){
+                linearSp = 0.5;
+            }else if(gamepad2.right_stick_y > 0){
                 linearSp = -0.3;
-            }else if(glyphArm.time.seconds() > 0.4){
+                ;
+            }else if(glyphArm.timer.seconds() > 0.4){
                 control = false;
                 linearSp = 0;
             }
             glyphArm.moveUpOrDown(linearSp);
-    // when the triggers are pressed, the claw opens/closes
-            if (gamepad2.right_trigger > 0) {
+
+            if (gamepad2.left_trigger > 0) {
                 glyphArm.clawOpen();
-            } else if (gamepad2.left_trigger > 0) {
+            } else if (gamepad2.right_trigger > 0) {
                 glyphArm.clawClose();
             }
         }
@@ -131,6 +130,7 @@ public class TeleOpReal extends OpMode{
 
             if (gamepad2.left_trigger > 0) {
                 clawPos -= 0.01d;
+
             }
             //lifting up the relic after picking it up to clear the wall
             if (arm1Pos > 1) {
@@ -153,14 +153,15 @@ public class TeleOpReal extends OpMode{
             }
         }
         //moving relic
-        relicArm.RelicExt(slidePos);
-        relicArm.ClawMove(relicArm.relicClaw_ST+clawPos);
-        relicArm.ArmMove(relicArm.relicArm1_ST+arm1Pos);
+        //arm.RelicExt(slidePos);
+        //arm.ClawMove(arm.relicClaw_ST+clawPos);
+        //arm.ArmMove(arm.relicArm1_ST+arm1Pos);
 
         //Sending messages
-        //glyphArm.getPosition(telemetry);
-        // telemetry.addData("Power",speed);
-        telemetry.addData("Time: ",glyphArm.time.seconds());
+        glyphArm.getPosition(telemetry);
+        telemetry.addData("Power",speed);
+        telemetry.addData("GlyphPower",linearSp);
+        telemetry.addData("time",glyphArm.timer.seconds());
         telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 

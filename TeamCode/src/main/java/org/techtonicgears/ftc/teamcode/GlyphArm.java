@@ -1,5 +1,6 @@
-
 package org.techtonicgears.ftc.teamcode;
+
+/*/ Imports /*/
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -10,18 +11,23 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
 public class GlyphArm {
+
+    /*/ Define the motors that are being used in Glyph Arm /*/
+
     private DcMotor verticalMotor;
     private Servo leftHand;
     private Servo rightHand;
     double leftOffset = 0.77;
     double rightOffset = 0.28;
     double clawOff = 0.4;
-    ElapsedTime time = new ElapsedTime();
+    HardwareMap hwMap = null;
+    public ElapsedTime timer = new ElapsedTime();
 
-public void init(HardwareMap map) {
-    verticalMotor = map.get(DcMotor.class, "glyph_arm");
-    leftHand = map.get(Servo.class, "glyph_claw_l");
-    rightHand = map.get(Servo.class, "glyph_claw_r");
+public void init(HardwareMap Map) {
+    hwMap = Map;
+    verticalMotor = hwMap.get(DcMotor.class, "glyph_Arm");
+    leftHand = hwMap.get(Servo.class, "glyph_claw_l");
+    rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 
     verticalMotor.setDirection(DcMotor.Direction.FORWARD);
     verticalMotor.setPower(0);
@@ -41,6 +47,7 @@ public void moveUpOrDown(double power){
 }
 public void clawClose(){
     leftHand.setPosition(leftOffset - clawOff);
+
     rightHand.setPosition(rightOffset + clawOff);
 }
 
