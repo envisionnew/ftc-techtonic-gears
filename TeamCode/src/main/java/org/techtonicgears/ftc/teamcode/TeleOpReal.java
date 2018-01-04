@@ -22,8 +22,6 @@ public class TeleOpReal extends OpMode{
     double arm1Pos = 0.0d;//the relic arm up/down pos
     double slidePos = 0.0d;//relic arm extend movent
     int height = 0;//hiegth of glyph arm to stop at right height
-    boolean mode = false;//drive mode forward/reverse
-    boolean armMode = false;//the mode of arm, relic or glyph
     boolean control = false;//to make sure timer.reset() only happens once
     @Override
     public void init() {
@@ -48,29 +46,9 @@ public class TeleOpReal extends OpMode{
         //Jewel set arm up
         jewel.setJewelArm(0);
 
-        //Modes to make gamepad control easier
-        //driving changes for changing front/back of the robot
-        if(gamepad1.a){
-            mode = false;
-        }else if(gamepad1.y){
-            mode = true;
-        }
 
-        //x is for glyph controls, b is for relic controls
-        if(gamepad2.x) {
-            armMode = false;
-        }else if(gamepad2.b){
-            armMode = true;
-        }
-
-        //Drive Part
-        //switch between negative and positive power
-        if(mode == false) {
             speed = -gamepad1.right_stick_y;
-        }else{
 
-            speed = gamepad1.right_stick_y;
-        }
         //clip speed to stop too fast power
         speed = Range.clip(speed, -0.5, 0.5);
         //divide offset by two to control turn
@@ -83,7 +61,6 @@ public class TeleOpReal extends OpMode{
 
         //GlyphArm part
         // for moving up and down by about a glyph length
-        if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 0.5;
                 height++;
@@ -103,10 +80,10 @@ public class TeleOpReal extends OpMode{
             } else if (gamepad2.right_trigger > 0) {
                 glyphArm.clawClose();
             }
-        }
+
 
         //Relic Arm Part
-        if(armMode == true) {
+        /*if(armMode == true) {
             //extending part of the relic arm
             if (gamepad2.right_stick_y < 0) {
                 slidePos = -1d;
@@ -148,7 +125,7 @@ public class TeleOpReal extends OpMode{
         //moving relic
         //arm.RelicExt(slidePos);
         //arm.ClawMove(arm.relicClaw_ST+clawPos);
-        //arm.ArmMove(arm.relicArm1_ST+arm1Pos);
+        //arm.ArmMove(arm.relicArm1_ST+arm1Pos);*/
 
         //Sending messages
         glyphArm.getPosition(telemetry);
