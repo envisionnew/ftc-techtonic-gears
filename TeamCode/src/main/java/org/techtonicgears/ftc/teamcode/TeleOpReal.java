@@ -11,7 +11,7 @@ public class TeleOpReal extends OpMode{
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     //RelicArm  arm = new RelicArm();
-    //JewelArm jewel = new JewelArm();
+    JewelArm jewel = new JewelArm();
 
     //Variables
     double linearSp = 0.0d;//for glyph arm up/down movement
@@ -31,7 +31,7 @@ public class TeleOpReal extends OpMode{
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
         //arm.init(hardwareMap);
-        //jewel.init(hardwareMap);
+        jewel.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
@@ -42,12 +42,11 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void start() {
-        glyphArm.timer.reset();
     }
     @Override
     public void loop() {
         //Jewel set arm up
-        //jewel.setJewelArm(0);
+        jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
         //driving changes for changing front/back of the robot
@@ -87,21 +86,15 @@ public class TeleOpReal extends OpMode{
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 0.5;
-                glyphArm.timer.reset();
                 height++;
             } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
                 linearSp = -0.3;
-                glyphArm.timer.reset();
                 height--;
             }
             if(gamepad2.right_stick_y < 0){
                 linearSp = 0.5;
             }else if(gamepad2.right_stick_y > 0){
                 linearSp = -0.3;
-                ;
-            }else if(glyphArm.timer.seconds() > 0.4){
-                control = false;
-                linearSp = 0;
             }
             glyphArm.moveUpOrDown(linearSp);
 
@@ -161,7 +154,6 @@ public class TeleOpReal extends OpMode{
         glyphArm.getPosition(telemetry);
         telemetry.addData("Power",speed);
         telemetry.addData("GlyphPower",linearSp);
-        telemetry.addData("time",glyphArm.timer.seconds());
         telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 
