@@ -11,7 +11,7 @@ public class TeleOpReal extends OpMode{
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     //RelicArm  arm = new RelicArm();
-    //JewelArm jewel = new JewelArm();
+    JewelArm jewel = new JewelArm();
 
     //Variables
     double linearSp = 0.0d;//for glyph arm up/down movement
@@ -31,7 +31,7 @@ public class TeleOpReal extends OpMode{
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
         //arm.init(hardwareMap);
-        //jewel.init(hardwareMap);
+        jewel.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
@@ -47,7 +47,7 @@ public class TeleOpReal extends OpMode{
     @Override
     public void loop() {
         //Jewel set arm up
-        //jewel.setJewelArm(0);
+        jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
         //driving changes for changing front/back of the robot
