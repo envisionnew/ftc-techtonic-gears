@@ -1,22 +1,21 @@
 package org.techtonicgears.ftc.teamcode;
 
-/**
- * Created by ritali on 12/19/17.
- */
+
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+
 //@Disabled
 @TeleOp(name = "New TeleOp: Test ")
-public class MecanumTeleops extends OpMode {
+public class MecanumTeleOps extends OpMode {
     //All RobotParts
     MecanumDriveTrain drive = new MecanumDriveTrain();
-    GlyphArm glyphArm = new GlyphArm();
-    RelicArm  relicArm = new RelicArm();
-    JewelArm jewel = new JewelArm();
+    //GlyphArm glyphArm = new GlyphArm();
+   // RelicArm  relicArm = new RelicArm();
+    //JewelArm jewel = new JewelArm();
 
     //Variables
     double linearSp = 0.0d; //for glyph arm up/down movement
@@ -32,10 +31,10 @@ public class MecanumTeleops extends OpMode {
     @Override
     public void init() {
         //Init all RobotParts
-        glyphArm.init(hardwareMap);
+       // glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
-        relicArm.init(hardwareMap);
-        jewel.init(hardwareMap);
+       // relicArm.init(hardwareMap);
+       // jewel.init(hardwareMap);
 
         //Start telemetry message
         telemetry.addData("", "Press Start");
@@ -45,13 +44,13 @@ public class MecanumTeleops extends OpMode {
     public void init_loop(){
     }
     @Override
-    public void start() {
-        glyphArm.time.reset();
+   public void start() {
+       // glyphArm.time.reset();
     }
     @Override
     public void loop() {
         //Jewel set arm up
-        jewel.setJewelArm(0);
+       // jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
         //x is for glyph controls, b is for relic controls
@@ -70,7 +69,7 @@ public class MecanumTeleops extends OpMode {
         strafe = Range.clip(strafe, -0.5, 0.5);
 
         //divide offset by two to control turn
-        offset = gamepad1.left_stick_x/2;
+        offset = gamepad1.left_stick_x;
 
 
         drive.move(speed, offset, strafe);
@@ -79,16 +78,20 @@ public class MecanumTeleops extends OpMode {
         telemetry.addData("Strafe: ", strafe);
         telemetry.update();
 
-        //GlyphArm part
+        /*/GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
-                linearSp = 1;
+                linearSp = 0.1;
+                telemetry.addData("Speed", linearSp);
+                telemetry.update();
                 control = true;
                 glyphArm.time.reset();
                 height++;
             } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
-                linearSp = -1;
+                linearSp = -0.1;
+                telemetry.addData("Speed", linearSp);
+                telemetry.update();
                 control = true;
                 glyphArm.time.reset();
                 height--;
@@ -106,13 +109,18 @@ public class MecanumTeleops extends OpMode {
             glyphArm.moveUpOrDown(linearSp);
             // when the triggers are pressed, the claw opens/closes
             if (gamepad2.right_trigger > 0) {
-                glyphArm.clawOpen();
+                glyphDC.clawOpen();
+                telemetry.addLine("Claw Open");
+                telemetry.update();
             } else if (gamepad2.left_trigger > 0) {
                 glyphArm.clawClose();
+                telemetry.addLine("Claw Close");
+                telemetry.update();
             }
         }
 
-        //Relic Arm Part
+/*/
+        /*/Relic Arm Part
         if(armMode == true) {
             //extending part of the relic arm
             if (gamepad2.right_stick_y < 0) {
@@ -155,11 +163,10 @@ public class MecanumTeleops extends OpMode {
         relicArm.RelicExt(slidePos);
         relicArm.ClawMove(relicArm.relicClaw_ST+clawPos);
         relicArm.ArmMove(relicArm.relicArm1_ST+arm1Pos);
-
+/*/
         //Sending messages
         //glyphArm.getPosition(telemetry);
         // telemetry.addData("Power",speed);
-        telemetry.addData("Time: ",glyphArm.time.seconds());
         telemetry.addData("Arm1Pos", arm1Pos);
         telemetry.update();
 
