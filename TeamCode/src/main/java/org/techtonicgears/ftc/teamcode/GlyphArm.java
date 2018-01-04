@@ -21,7 +21,6 @@ public class GlyphArm {
     double rightOffset = 0.28;
     double clawOff = 0.4;
     HardwareMap hwMap = null;
-    public ElapsedTime timer = new ElapsedTime();
 
 public void init(HardwareMap Map) {
     hwMap = Map;
