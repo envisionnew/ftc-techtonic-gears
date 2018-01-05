@@ -1,5 +1,8 @@
 package org.techtonicgears.ftc.teamcode;
 
+
+/*/ Imports /*/
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
@@ -7,31 +10,35 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name = "TeleOp: Real")
 public class TeleOpReal extends OpMode{
-    //All RobotParts
+
+    /*/ Define all the motors that are being used in TeleOpReal /*/
+
     DriveTrain drive = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
-    //RelicArm  arm = new RelicArm();
+    /*/ RelicArm  arm = new RelicArm(); /*/
     JewelArm jewel = new JewelArm();
 
-    //Variables
-    double linearSp = 0.0d;//for glyph arm up/down movement
-    double speed = 0.0d;//for drive forward speed
-    double strafe = 0.0d; //for strafing
-    double offset = 0.0d;//for drive turning
-    double clawPos = 0.0d;//relic claw position
-    double arm1Pos = 0.0d;//the relic arm up/down pos
-    double slidePos = 0.0d;//relic arm extend movent
-    int height = 0;//hiegth of glyph arm to stop at right height
-    boolean control = false;//to make sure timer.reset() only happens once
+    /*/ Define all the variables that are being used in TeleOpReal /*/
+    
+    double linearSp = 0.0d; /*/ Used for GlyphArm: Arm Up/Down Movement /*/
+    double speed = 0.0d; /*/ Used for Driving: Forward Speed /*/
+    double strafe = 0.0d; /*/ Used for Driving: Strafing /*/
+    double offset = 0.0d; /*/ Used for Driving: Turnng /*/
+    double clawPos = 0.0d; /*/ Used for Relic: Claw Position /*/
+    double arm1Pos = 0.0d; /*/ Used for Relic: Arm Up/Down Position /*/
+    double slidePos = 0.0d; /*/ Used for Relic: Slide Extended Outward/Inward /*/
+    int height = 0; /*/ Height of Glyph Arm To Stop At So Arm Does Not Break /*/
+    boolean control = false; /*/ Used to make sure timer.reset() only happens once /*/
     @Override
     public void init() {
-        //Init all RobotParts
+
+        /*/ Initiliaze all robot parts. /*/
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
-        //arm.init(hardwareMap);
+        /*/arm.init(hardwareMap); /*/
         jewel.init(hardwareMap);
 
-        //Start telemetry message
+        /*/ Telemtry Messages: Send /*/
         telemetry.addData("", "Press Start");
         telemetry.update();
     }
@@ -43,15 +50,20 @@ public class TeleOpReal extends OpMode{
     }
     @Override
     public void loop() {
-        //Jewel set arm up
+
+        /*/ Jewel Arm Setup /*/
+
         jewel.setJewelArm(0);
 
 
             speed = -gamepad1.right_stick_y;
 
-        //clip speed to stop too fast power
+        /*/ Clip the speed to stop too fast power /*/
+
         speed = Range.clip(speed, -0.5, 0.5);
-        //divide offset by two to control turn
+
+        /*/ Dividing offset by two will lead to turning /*/
+
         offset = gamepad1.left_stick_x/2;
 
         strafe = -gamepad1.right_stick_x;
@@ -59,8 +71,10 @@ public class TeleOpReal extends OpMode{
 
         drive.move(speed, offset, strafe);
 
-        //GlyphArm part
-        // for moving up and down by about a glyph length
+        /*/ GLYPH ARM PART /*/
+
+        /*/ Used to move the glyph arm about a glyph's length. /*/
+
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 0.5;
                 height++;
@@ -82,8 +96,9 @@ public class TeleOpReal extends OpMode{
             }
 
 
-        //Relic Arm Part
-        /*if(armMode == true) {
+        /*/ RELIC ARM PART /*/
+        /*/
+        if(armMode == true) {
             //extending part of the relic arm
             if (gamepad2.right_stick_y < 0) {
                 slidePos = -1d;
@@ -125,9 +140,10 @@ public class TeleOpReal extends OpMode{
         //moving relic
         //arm.RelicExt(slidePos);
         //arm.ClawMove(arm.relicClaw_ST+clawPos);
-        //arm.ArmMove(arm.relicArm1_ST+arm1Pos);*/
+        //arm.ArmMove(arm.relicArm1_ST+arm1Pos);
+        /*/
 
-        //Sending messages
+        /*/ Telemtry Messages: Send /*/
         glyphArm.getPosition(telemetry);
         telemetry.addData("Power",speed);
         telemetry.addData("GlyphPower",linearSp);
