@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ftc-techtonic-gears.iml" filepath="$PROJECT_DIR$/ftc-techtonic-gears.iml" />
-      <module fileurl="file://C:\Users\mujoo\Downloads\ftc-techtonic-gears\ftc-techtonic-gears\ftc-techtonic-gears-1.iml" filepath="C:\Users\mujoo\Downloads\ftc-techtonic-gears\ftc-techtonic-gears\ftc-techtonic-gears-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ftc-techtonic-gears.iml" filepath="$PROJECT_DIR$/.idea/modules/ftc-techtonic-gears.iml" />
     </modules>
   </component>
 </project>
