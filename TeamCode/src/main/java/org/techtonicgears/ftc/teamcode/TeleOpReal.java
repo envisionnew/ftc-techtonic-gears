@@ -73,7 +73,7 @@ public class TeleOpReal extends OpMode{
 
         /*/ GLYPH ARM PART /*/
 
-        /*/ Used to move the glyph arm about a glyph's length. /*/
+        /*/ Used to move the glyph arm about a glyph length. /*/
 
             if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
                 linearSp = 0.5;
