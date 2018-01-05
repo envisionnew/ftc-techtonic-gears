@@ -23,7 +23,7 @@ public class TeleOpReal extends OpMode{
     double linearSp = 0.0d; /*/ Used for GlyphArm: Arm Up/Down Movement /*/
     double speed = 0.0d; /*/ Used for Driving: Forward Speed /*/
     double strafe = 0.0d; /*/ Used for Driving: Strafing /*/
-    double offset = 0.0d; /*/ Used for Driving: Turnng /*/
+    double offset = 0.0d; /*/ Used for Driving: Turning /*/
     double clawPos = 0.0d; /*/ Used for Relic: Claw Position /*/
     double arm1Pos = 0.0d; /*/ Used for Relic: Arm Up/Down Position /*/
     double slidePos = 0.0d; /*/ Used for Relic: Slide Extended Outward/Inward /*/
@@ -32,13 +32,13 @@ public class TeleOpReal extends OpMode{
     @Override
     public void init() {
 
-        /*/ Initiliaze all robot parts. /*/
+        /*/ Initialize all robot parts. /*/
         glyphArm.init(hardwareMap);
         drive.init(hardwareMap);
         /*/arm.init(hardwareMap); /*/
         jewel.init(hardwareMap);
 
-        /*/ Telemtry Messages: Send /*/
+        /*/ Telemetry Messages: Send /*/
         telemetry.addData("", "Press Start");
         telemetry.update();
     }
