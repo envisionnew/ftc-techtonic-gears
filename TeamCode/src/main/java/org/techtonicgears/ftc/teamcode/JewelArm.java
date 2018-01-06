@@ -14,7 +14,7 @@ public class JewelArm {
     public void init(HardwareMap Map){
         hwMap = Map;
         jewelArm = hwMap.get(Servo.class, "jewel_arm");
-        colorSensor = hwMap.get(ColorSensor.class, "colorsensor");
+        colorSensor = hwMap.get(ColorSensor.class, "color");
         gyroSensor = hwMap.get(GyroSensor.class, "gyrosensor");
         jewelArm.setPosition(0);
         gyroSensor.calibrate();

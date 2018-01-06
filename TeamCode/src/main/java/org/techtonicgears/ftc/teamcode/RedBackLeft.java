@@ -17,7 +17,6 @@ public class RedBackLeft extends LinearOpMode {
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
     JewelArm jewelArm = new JewelArm();
-    ColorSensor colorSensor;
     //defining the elapsed time so we can move robot using seconds
     ElapsedTime elapsedTime = new ElapsedTime();
 
@@ -28,7 +27,6 @@ public class RedBackLeft extends LinearOpMode {
         glyphArm.init(hardwareMap);
         jewelArm.init(hardwareMap);
         driveTrain.init(hardwareMap);
-        colorSensor = hardwareMap.colorSensor.get("colorsensor");
         //wait for the user to press start button
         waitForStart();
 
@@ -49,7 +47,7 @@ public class RedBackLeft extends LinearOpMode {
 
         //detect color of the jewel and move based upon the input
         //turn on the color sensor
-        colorSensor.enableLed(true);
+        jewelArm.colorSensor.enableLed(true);
         //drop the jewel arm
         elapsedTime.reset();
         //setting jewel arm position
@@ -59,7 +57,7 @@ public class RedBackLeft extends LinearOpMode {
 
         /*the if statement detects which values the robot is looking at
         sensor finds out which jewel it is looking at */
-        if(colorSensor.red() > colorSensor.blue()){
+        if(jewelArm.colorSensor.red() > jewelArm.colorSensor.blue()){
         //if the sensor detects the red jewel
             //robot needs to strafe to the right
             elapsedTime.reset();
@@ -110,9 +108,5 @@ public class RedBackLeft extends LinearOpMode {
           while (opModeIsActive() && elapsedTime.seconds() < 2){
               driveTrain.move(0.7, 0, 0);
           }
-
-
-
-
     }
 }
