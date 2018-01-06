@@ -20,8 +20,8 @@ public class TeleOpReal extends OpMode{
     double offset = 0.0d;//for drive turning
     double clawPos = 0.0d;//relic claw position
     double arm1Pos = 0.0d;//the relic arm up/down pos
-    double slidePos = 0.0d;//relic arm extend movent
-    int height = 0;//hiegth of glyph arm to stop at right height
+    double slidePos = 0.0d;//relic arm extend movement
+    int height = 0;//height of glyph arm to stop at right height
     boolean mode = false;//drive mode forward/reverse
     boolean armMode = false;//the mode of arm, relic or glyph
     boolean control = false;//to make sure timer.reset() only happens once
