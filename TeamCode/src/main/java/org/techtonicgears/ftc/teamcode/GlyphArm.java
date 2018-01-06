@@ -34,8 +34,8 @@ public void init(HardwareMap Map) {
 
     verticalMotor.setDirection(DcMotor.Direction.FORWARD);
     verticalMotor.setPower(0);
-    leftHand.setPosition(leftOffset);
-    rightHand.setPosition(rightOffset);
+    leftHand.setPosition(0.37);
+    rightHand.setPosition(0.68);
 }
 
 
@@ -56,7 +56,7 @@ public void moveUpOrDown(double power){
 
     /*/ Creating the motion for closing the GlyphArm's claws. /*/
 
-public void clawClose(){
+public void clawOpen(){
     leftHand.setPosition(leftOffset - clawOff);
 
     rightHand.setPosition(rightOffset + clawOff);
@@ -64,7 +64,7 @@ public void clawClose(){
 
     /*/ Creating the motion for opening the GlyphArm's claws. /*/
 
-public void clawOpen(){
+public void clawClose(){
     leftHand.setPosition(leftOffset);
     rightHand.setPosition(rightOffset);
 

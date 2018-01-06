@@ -61,29 +61,32 @@ public class RedBackLeft extends LinearOpMode {
         sensor finds out which jewel it is looking at */
         if(colorSensor.red() > colorSensor.blue()){
         //if the sensor detects the red jewel
-        // strafe to the left to knock off the other one
+            //robot needs to strafe to the right
+            elapsedTime.reset();
+            while (opModeIsActive() && elapsedTime.seconds() < 2.2) {
+                driveTrain.move(0, 0, 0.5);
+            }
+            //lift up the jewel arm
+            jewelArm.setJewelArm(0);
+            //get back on balancing stone and regain lost ground
+          /*(basically get back where you would have been if
+             the jewels had been flipped */
+            elapsedTime.reset();
+            while (opModeIsActive() && elapsedTime.seconds() < 4.4) {
+                driveTrain.move(0, 0, -0.5);
+            }
+
+
+        }
+        //if the sensor sees the blue jewel
+        else {
+            // strafe to the left to knock off the other one
             elapsedTime.reset();
             while(opModeIsActive() && elapsedTime.seconds() < 2.2) {
                 driveTrain.move(0, 0, -0.5);
             }
 
         }
-        //if the sensor sees the blue jewel
-        else{
-          //robot needs to strafe to the right
-            elapsedTime.reset();
-            while(opModeIsActive() && elapsedTime.seconds() < 2.2) {
-                driveTrain.move(0, 0, 0.5);
-            }
-          //lift up the jewel arm
-            jewelArm.setJewelArm(0);
-          //get back on balancing stone and regain lost ground
-          /*(basically get back where you would have been if
-             the jewels had been flipped */
-          elapsedTime.reset();
-          while (opModeIsActive() && elapsedTime.seconds() < 4.4){
-              driveTrain.move(0,0, -0.5);
-          }
 
           //move forward to avoid hitting the crypto box
             elapsedTime.reset();
@@ -107,7 +110,7 @@ public class RedBackLeft extends LinearOpMode {
           while (opModeIsActive() && elapsedTime.seconds() < 2){
               driveTrain.move(0.7, 0, 0);
           }
-        }
+
 
 
 
