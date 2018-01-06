@@ -63,7 +63,7 @@ public class RedBackLeft extends LinearOpMode {
         //if the sensor detects the red jewel
         // strafe to the left to knock off the other one
             elapsedTime.reset();
-            while(opModeIsActive() && elapsedTime.seconds() < 2.3) {
+            while(opModeIsActive() && elapsedTime.seconds() < 2.2) {
                 driveTrain.move(0, 0, -0.5);
             }
 
@@ -72,7 +72,7 @@ public class RedBackLeft extends LinearOpMode {
         else{
           //robot needs to strafe to the right
             elapsedTime.reset();
-            while(opModeIsActive() && elapsedTime.seconds() < 2.3) {
+            while(opModeIsActive() && elapsedTime.seconds() < 2.2) {
                 driveTrain.move(0, 0, 0.5);
             }
           //lift up the jewel arm
@@ -81,8 +81,31 @@ public class RedBackLeft extends LinearOpMode {
           /*(basically get back where you would have been if
              the jewels had been flipped */
           elapsedTime.reset();
-          while (opModeIsActive() && elapsedTime.seconds() < 4.6){
+          while (opModeIsActive() && elapsedTime.seconds() < 4.4){
               driveTrain.move(0,0, -0.5);
+          }
+
+          //move forward to avoid hitting the crypto box
+            elapsedTime.reset();
+          while (opModeIsActive() && elapsedTime.seconds() < 2){
+              driveTrain.move(0.3, 0, 0);
+          }
+
+          //turn 180 degrees to face the crypto box
+            elapsedTime.reset();
+          while (opModeIsActive() && elapsedTime.seconds() < 3){
+              driveTrain.move(0, 0.5, 0);
+          }
+
+          //strafe to position itself
+            elapsedTime.reset();
+          while (opModeIsActive() && elapsedTime.seconds() < 1) {
+              driveTrain.move(0, 0, 0.1);
+          }
+          //Move forward to place the glyph
+            elapsedTime.reset();
+          while (opModeIsActive() && elapsedTime.seconds() < 2){
+              driveTrain.move(0.7, 0, 0);
           }
         }
 
