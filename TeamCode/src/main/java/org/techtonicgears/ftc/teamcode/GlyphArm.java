@@ -26,7 +26,7 @@ public void init(HardwareMap Map) {
 
     /*/ Naming all of the motors /*/
 
-    verticalMotor = hwMap.get(DcMotor.class, "glyph_Arm");
+    verticalMotor = hwMap.get(DcMotor.class, "glyph_arm");
     leftHand = hwMap.get(Servo.class, "glyph_claw_l");
     rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 

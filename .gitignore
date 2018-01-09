@@ -57,7 +57,7 @@ freeline_project_description.json
 
 # User-specific stuff:
 .idea/**/workspace.xml
-.idea/**/tasks.xml
+.idea/**/*.xml
 .idea/dictionaries
 
 # Sensitive or high-churn files:
