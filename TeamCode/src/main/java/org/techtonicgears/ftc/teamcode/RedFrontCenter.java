@@ -18,7 +18,7 @@ public class RedFrontCenter extends LinearOpMode {
     GlyphArm glyphArm = new GlyphArm();
     ElapsedTime timer = new ElapsedTime();
 
-    // varaibles needed for the color sensor
+    // variables needed for the color sensor
     String foundColor = null;
     String allianceColor = "red";
 

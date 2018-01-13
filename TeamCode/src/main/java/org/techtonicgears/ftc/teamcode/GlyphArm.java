@@ -20,6 +20,8 @@ public class GlyphArm {
     double rightOffset = 0.28;
     double clawOff = 0.4;
     HardwareMap hwMap = null;
+    int armMove = 0;
+    double armPower = 0.0;
 
 public void init(HardwareMap Map) {
     hwMap = Map;
@@ -54,11 +56,26 @@ public void moveUpOrDown(double power){
     verticalMotor.setPower(power);
 }
 
+public void armUp(double power){
+    if ((++armMove % 5) == 0) {
+        armPower = power;
+    } else if (armPower > 0.1) {
+        armPower -= 0.1;
+    }
+    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
+    verticalMotor.setPower(armPower);
+}
+
+public void armDown (double power) {
+    if (armPower != 0) armPower -= 0.025;
+    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
+    verticalMotor.setPower(armPower);
+}
+
     /*/ Creating the motion for closing the GlyphArm's claws. /*/
 
 public void clawOpen(){
     leftHand.setPosition(leftOffset - clawOff);
-
     rightHand.setPosition(rightOffset + clawOff);
 }
 
