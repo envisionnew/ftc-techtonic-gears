@@ -59,7 +59,7 @@ public class RedBackLeft extends LinearOpMode {
         sensor finds out which jewel it is looking at */
         if(jewelArm.colorSensor.red() > jewelArm.colorSensor.blue()){
         //if the sensor detects the red jewel
-            //robot needs to strafe to the right
+            //robot needs to strafe to the LEFT
             elapsedTime.reset();
             while (opModeIsActive() && elapsedTime.seconds() < 2.2) {
                 driveTrain.move(0, 0, 0.5);
@@ -71,14 +71,13 @@ public class RedBackLeft extends LinearOpMode {
              the jewels had been flipped */
             elapsedTime.reset();
             while (opModeIsActive() && elapsedTime.seconds() < 4.4) {
+                //move RIGHT
                 driveTrain.move(0, 0, -0.5);
             }
-
-
         }
-        //if the sensor sees the blue jewel
+        //if the sensor sees the RED jewel
         else {
-            // strafe to the left to knock off the other one
+            // strafe to the RIGHT to knock off the other one
             elapsedTime.reset();
             while(opModeIsActive() && elapsedTime.seconds() < 2.2) {
                 driveTrain.move(0, 0, -0.5);
@@ -92,16 +91,16 @@ public class RedBackLeft extends LinearOpMode {
               driveTrain.move(0.3, 0, 0);
           }
 
-          //turn 180 degrees to face the crypto box
+          //turn 1t80 degrees to face the crypto box
             elapsedTime.reset();
           while (opModeIsActive() && elapsedTime.seconds() < 3){
-              driveTrain.move(0, 0.5, 0);
+              driveTrain.move(0, -0.5, 0);
           }
 
           //strafe to position itself
             elapsedTime.reset();
           while (opModeIsActive() && elapsedTime.seconds() < 1) {
-              driveTrain.move(0, 0, 0.1);
+              driveTrain.move(0, 0, 0.6);
           }
           //Move forward to place the glyph
             elapsedTime.reset();
