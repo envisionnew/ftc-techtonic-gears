@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 
 @Autonomous(name = "RedFront")
-public class BlueFront extends LinearOpMode {
+public class RedFront extends LinearOpMode {
     //define the parts that will be moving
     DriveTrain driveTrain = new DriveTrain();
     GlyphArm glyphArm = new GlyphArm();
@@ -77,7 +77,7 @@ public class BlueFront extends LinearOpMode {
         //drop jewel arm so color sensor can detect
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.5) {
-            glyphArm.armUp(armPower);
+            glyphArm.moveUpOrDown(armPower);
             jewelArm.setJewelArm(0.65);
             //returns which color the jewel is
             if (colorSensor.red() > colorSensor.blue()) {
@@ -99,7 +99,7 @@ public class BlueFront extends LinearOpMode {
         runtime.reset();
         if (teamColor == foundColor) {
             while (opModeIsActive() && runtime.seconds() < 0.1) {
-                glyphArm.armUp(armPower);
+                glyphArm.moveUpOrDown(armPower);
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes the other jewel
                 driveTrain.move(0, -1, 0);
@@ -107,13 +107,13 @@ public class BlueFront extends LinearOpMode {
             offset = 0.1;
             driveTrain.move(0, 0, 0);
             while (opModeIsActive() && runtime.seconds() < 0.4) {
-                glyphArm.armUp(armPower);
+                glyphArm.moveUpOrDown(armPower);
                 jewelArm.setJewelArm(0);
             }
             // if the color of the jewel is not the same as the color of the team
         } else if (foundColor != null){
             while (opModeIsActive() && runtime.seconds() < 0.1) {
-                glyphArm.armUp(armPower);
+                glyphArm.moveUpOrDown(armPower);
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(0, 1, 0);
@@ -129,7 +129,7 @@ public class BlueFront extends LinearOpMode {
         //get down from the board
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 5.5) {
-            glyphArm.armUp(armPower);
+            glyphArm.moveUpOrDown(armPower);
             heading = modernRoboticsI2cGyro.getHeading();
             if (heading == 0) offset = 0.0;
             driveTrain.move(0.1, offset, 0);
@@ -141,7 +141,7 @@ public class BlueFront extends LinearOpMode {
         move = 0;
         offset = 0.0;
         while (opModeIsActive() && runtime.seconds() < 1.1) {
-            glyphArm.armUp(armPower);
+            glyphArm.moveUpOrDown(armPower);
             heading = modernRoboticsI2cGyro.getHeading();
             if (heading >= 90 && !(heading >= 350) && move++ > 6) {
                 break;
@@ -158,9 +158,9 @@ public class BlueFront extends LinearOpMode {
         //Gap = rangeSensor.getDistance(DistanceUnit.CM);
         while (opModeIsActive() && (runtime.seconds() < 3)) {
             if (runtime.seconds() < 2.5) {
-                glyphArm.armUp(armPower);
+                glyphArm.moveUpOrDown(armPower);
             } else {
-                glyphArm.armDown(armPower);
+                glyphArm.moveUpOrDown(armPower);
             }
             heading = modernRoboticsI2cGyro.getHeading();
             offset = 0.0;
