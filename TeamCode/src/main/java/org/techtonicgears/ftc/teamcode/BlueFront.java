@@ -102,7 +102,7 @@ public class BlueFront extends LinearOpMode {
                 glyphArm.armUp(armPower);
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes the other jewel
-                driveTrain.move(0, -1, 0);
+                driveTrain.move(0, 1, 0);
             }
             offset = 0.1;
             driveTrain.move(0, 0, 0);
@@ -116,7 +116,7 @@ public class BlueFront extends LinearOpMode {
                 glyphArm.armUp(armPower);
                 jewelArm.setJewelArm(0.65);
                 //moves and pushes off the same jewel it detects because colors dont match
-                driveTrain.move(0, 1, 0);
+                driveTrain.move(0, -1, 0);
             }
 
             offset = -0.1;
