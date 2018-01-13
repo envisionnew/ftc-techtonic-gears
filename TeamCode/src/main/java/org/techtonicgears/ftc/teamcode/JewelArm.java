@@ -10,14 +10,11 @@ public class JewelArm {
     Servo jewelArm;
     HardwareMap hwMap;
     ColorSensor colorSensor;
-    GyroSensor gyroSensor;
     public void init(HardwareMap Map){
         hwMap = Map;
         jewelArm = hwMap.get(Servo.class, "jewel_arm");
-        colorSensor = hwMap.get(ColorSensor.class, "colorsensor");
-        gyroSensor = hwMap.get(GyroSensor.class, "gyrosensor");
+        colorSensor = hwMap.get(ColorSensor.class, "color");
         jewelArm.setPosition(0);
-        gyroSensor.calibrate();
     }
     //method for setting jewel arm to a certain position, parameter is a double which is used to set the position
     public void setJewelArm(double Pos){

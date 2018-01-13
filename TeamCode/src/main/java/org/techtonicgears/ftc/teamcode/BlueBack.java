@@ -1,6 +1,7 @@
 package org.techtonicgears.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class BlueBack extends LinearOpMode {
@@ -12,6 +13,9 @@ public class BlueBack extends LinearOpMode {
     JewelArm jewelArm = new JewelArm();
     //Declaring Timer
     ElapsedTime timer = new ElapsedTime();
+    /*PARTS THAT ARE NOT ON ANY OF THE INDIVIDUAL CLASSES HAVE TO BE SEPERATELY
+      DEFINED IN THE PROGRAM, INCLUDING GYRO*/
+    GyroSensor gyroSensor;
     /* Declaring the doubles that store the value that the robot has to move
     to reach both of the two columns */
     double left = 0.5;
@@ -23,7 +27,7 @@ public class BlueBack extends LinearOpMode {
         glyphArm.init(hardwareMap);
         driveTrain.init(hardwareMap);
         jewelArm.init(hardwareMap);
-
+        gyroSensor = hardwareMap.get(GyroSensor.class, "gyro");
         //Resetting the timer
         timer.reset();
         //Opening the glyph arm claw
@@ -57,7 +61,7 @@ public class BlueBack extends LinearOpMode {
         //Move the robot forward so that it can turn without hitting the crypto box
         move(0.5, 0, 0, 2);
         //while loop saying turn until gyro sensor turned 180
-        while (opModeIsActive()&& jewelArm.gyroSensor.getHeading() > 180){
+        while (opModeIsActive()&& gyroSensor.getHeading() > 180){
             driveTrain.move(0,-0.5,0);
         }
         //Moving sideways to the right depending on which column the robot has to go to

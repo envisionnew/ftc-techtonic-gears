@@ -21,10 +21,8 @@ public class TeleOpReal extends OpMode{
     double clawPos = 0.0d;//relic claw position
     double arm1Pos = 0.0d;//the relic arm up/down pos
     double slidePos = 0.0d;//relic arm extend movement
-    int height = 0;//height of glyph arm to stop at right height
-    boolean mode = false;//drive mode forward/reverse
     boolean armMode = false;//the mode of arm, relic or glyph
-    boolean control = false;//to make sure timer.reset() only happens once
+
     @Override
     public void init() {
         //Init all RobotParts
@@ -49,13 +47,6 @@ public class TeleOpReal extends OpMode{
         jewel.setJewelArm(0);
 
         //Modes to make gamepad control easier
-        //driving changes for changing front/back of the robot
-        if(gamepad1.a){
-            mode = false;
-        }else if(gamepad1.y){
-            mode = true;
-        }
-
         //x is for glyph controls, b is for relic controls
         if(gamepad2.x) {
             armMode = false;
@@ -64,13 +55,7 @@ public class TeleOpReal extends OpMode{
         }
 
         //Drive Part
-        //switch between negative and positive power
-        if(mode == false) {
-            speed = -gamepad1.right_stick_y;
-        }else{
-
-            speed = gamepad1.right_stick_y;
-        }
+        speed = -gamepad1.right_stick_y;
         //clip speed to stop too fast power
         speed = Range.clip(speed, -0.5, 0.5);
         //divide offset by two to control turn
@@ -84,12 +69,10 @@ public class TeleOpReal extends OpMode{
         //GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
-            if (gamepad2.right_stick_y < 0 && control == false && height < 2) {
+            if (gamepad2.right_stick_y < 0) {
                 linearSp = 0.5;
-                height++;
-            } else if (gamepad2.right_stick_y > 0 && control == false && height > 0) {
+            } else if (gamepad2.right_stick_y > 0) {
                 linearSp = -0.3;
-                height--;
             }
             if(gamepad2.right_stick_y < 0){
                 linearSp = 0.5;
