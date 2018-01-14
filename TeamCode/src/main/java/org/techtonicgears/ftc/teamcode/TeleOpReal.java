@@ -61,7 +61,7 @@ public class TeleOpReal extends OpMode{
         //divide offset by two to control turn
         offset = gamepad1.left_stick_x/2;
 
-        strafe = -gamepad1.right_stick_x;
+        strafe = gamepad1.right_stick_x;
         strafe = Range.clip(strafe, -0.5, 0.5);
 
         drive.move(speed, offset, strafe);
