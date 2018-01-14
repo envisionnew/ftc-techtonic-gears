@@ -9,9 +9,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Created by Aanvi on 1/5/18.
  */
 
-public class RedFrontLeft {
-    @Autonomous(name = "AutoRedFrontCenter")
-    public class RedFrontCenter extends LinearOpMode {
+    @Autonomous(name = "AutoRedFrontLeft")
+    public class RedFrontLeft extends LinearOpMode {
 
         //creating all the parts of robot that will be needed
         DriveTrain driveTrain = new DriveTrain();
@@ -95,4 +94,4 @@ public class RedFrontLeft {
 
         }
     }
-}
+
