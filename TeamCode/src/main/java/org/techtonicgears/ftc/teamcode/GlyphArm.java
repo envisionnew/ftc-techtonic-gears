@@ -43,11 +43,11 @@ public void init(HardwareMap Map) {
 
     /*/ Adding Telemetry Messages /*/
 
-public void getPosition(Telemetry telemetry){
+/*public void getPosition(Telemetry telemetry){
     telemetry.addData("L: " + leftHand.getPosition(), "R: " + rightHand.getPosition());
     telemetry.update();
 
-}
+}*/
 
     /*/ Creating the motion for moving GlyphArm up and down. /*/
 

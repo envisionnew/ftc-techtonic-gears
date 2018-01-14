@@ -71,9 +71,9 @@ public class TeleOpReal extends OpMode{
         if(armMode == false) {
             linearSp = 0;
             if (gamepad2.right_stick_y < 0) {
-                linearSp = 0.5;
+                linearSp = -0.5;
             } else if (gamepad2.right_stick_y > 0) {
-                linearSp = -0.3;
+                linearSp = 0.3;
             }
 
             glyphArm.moveUpOrDown(linearSp);
@@ -131,7 +131,6 @@ public class TeleOpReal extends OpMode{
         //arm.ArmMove(arm.relicArm1_ST+arm1Pos);
 
         //Sending messages
-        glyphArm.getPosition(telemetry);
         telemetry.addData("Power",speed);
         telemetry.addData("GlyphPower",linearSp);
         telemetry.addData("Arm1Pos", arm1Pos);
