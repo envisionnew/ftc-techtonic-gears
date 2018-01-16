@@ -1,5 +1,6 @@
 package org.techtonicgears.ftc.teamcode;
 
+import com.qualcomm.hardware.ams.AMSColorSensor;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.*;
@@ -58,14 +59,15 @@ public class BlueBack extends LinearOpMode {
         timer.reset();
         glyphArm.clawClose();
 
-        while (opModeIsActive() && timer.seconds() < 0.4) {
-            glyphArm.moveUpOrDown(0.3);
+        while (opModeIsActive() && timer.seconds() < 1) {
+            glyphArm.moveUpOrDown(-0.4);
         }
         timer.reset();
 
         colorSensor.enableLed(true);
 
         while (opModeIsActive() && timer.seconds() < 2) {
+            glyphArm.moveUpOrDown(-0.15);
             jewelArm.setJewelArm(1);
             //returns which color the jewel is
             if (colorSensor.red() > colorSensor.blue()) {
@@ -87,6 +89,11 @@ public class BlueBack extends LinearOpMode {
             // if the color of the jewel is not the same as the color of the team
 
             timer.reset();
+            while (opModeIsActive() && timer.seconds() < 0.2){
+                driveTrain.move(0, -0.25,0);
+            }
+
+            timer.reset();
             while (opModeIsActive() && gyro.getHeading() < 359) {
                 driveTrain.move(0, -0.25, 0);
                 jewelArm.setJewelArm(0);
@@ -101,6 +108,12 @@ public class BlueBack extends LinearOpMode {
                 //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(0, -0.5, 0);
             }
+
+            timer.reset();
+            while (opModeIsActive() && timer.seconds() < 0.2){
+                driveTrain.move(0, 0.25,0);
+            }
+
             jewelArm.setJewelArm(0);
             while (opModeIsActive() && gyro.getHeading() > 1) {
                 driveTrain.move(0, 0.25, 0);
@@ -117,19 +130,30 @@ public class BlueBack extends LinearOpMode {
             driveTrain.move(0, -0.25,0);
         }
 
-        while (opModeIsActive() && gyro.getHeading() < 90){
+        while (opModeIsActive() && gyro.getHeading() < 87){
             driveTrain.move(0, -0.25,0);
         }
 
+        pause(1);
+
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 3){
+        while (opModeIsActive() && timer.seconds() < 1.6){
             driveTrain.move(0.5, 0,0);
         }
+
+        pause(0.1);
 
         gyro.resetZAxisIntegrator();
 
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 0.2){
+        while (opModeIsActive() && timer.seconds() < 0.5){
+            driveTrain.move(0, 0,0.5);
+        }
+
+        pause(1);
+
+        timer.reset();
+        while (opModeIsActive() && timer.seconds() < 1){
             driveTrain.move(0, -0.25,0);
         }
 
@@ -137,10 +161,22 @@ public class BlueBack extends LinearOpMode {
             driveTrain.move(0, -0.25,0);
         }
 
+        pause(1);
+
+        timer.reset();
+        while (opModeIsActive() && timer.seconds() < 1){
+            driveTrain.move(0.25, 0,0);
+        }
 
 
 
-
-
+    }
+    public void  pause(double seconds){
+        timer.reset();
+        while (opModeIsActive() && timer.seconds() < seconds){
+            driveTrain.move(0,0,0);
+            telemetry.addData("Wait",seconds);
+            telemetry.update();
+        }
     }
 }
