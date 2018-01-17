@@ -1,9 +1,9 @@
 package org.techtonicgears.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
-
 
 @TeleOp(name = "TeleOp: Real")
 public class TeleOpReal extends OpMode{

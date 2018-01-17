@@ -8,6 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 
+import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
+
 
 @Autonomous(name = "Blueback")
 public class BlueBack extends LinearOpMode {
@@ -21,11 +23,16 @@ public class BlueBack extends LinearOpMode {
     ElapsedTime timer = new ElapsedTime();
     /* Declaring the doubles that store the value that the robot has to move
     to reach both of the two columns */
-    double left = 0.5;
-    double middle = 1;
-    double right = 0;
+    VuForia vuForia = new VuForia();
+
+    double left = 1.3;
+    double middle = 1.6;
+    double right = 2;
     String teamColor = "blue";
     String foundColor = "";
+    RelicRecoveryVuMark foundVuMark;
+    double used = 0;
+
 
     ModernRoboticsI2cGyro gyro;
     ColorSensor colorSensor;
@@ -36,6 +43,7 @@ public class BlueBack extends LinearOpMode {
         glyphArm.init(hardwareMap);
         driveTrain.init(hardwareMap);
         jewelArm.init(hardwareMap);
+        vuForia.init(hardwareMap);
 
         colorSensor = hardwareMap.get(ColorSensor.class, "color");
         gyro = hardwareMap.get(ModernRoboticsI2cGyro.class, "gyro");
@@ -55,6 +63,9 @@ public class BlueBack extends LinearOpMode {
 
         //Waiting for the start button to be pressed
         waitForStart();
+
+        foundVuMark = vuForia.getVuMark();
+
 
         timer.reset();
         glyphArm.clawClose();
@@ -89,8 +100,8 @@ public class BlueBack extends LinearOpMode {
             // if the color of the jewel is not the same as the color of the team
 
             timer.reset();
-            while (opModeIsActive() && timer.seconds() < 0.2){
-                driveTrain.move(0, -0.25,0);
+            while (opModeIsActive() && timer.seconds() < 0.2) {
+                driveTrain.move(0, -0.25, 0);
             }
 
             timer.reset();
@@ -110,8 +121,8 @@ public class BlueBack extends LinearOpMode {
             }
 
             timer.reset();
-            while (opModeIsActive() && timer.seconds() < 0.2){
-                driveTrain.move(0, 0.25,0);
+            while (opModeIsActive() && timer.seconds() < 0.2) {
+                driveTrain.move(0, 0.25, 0);
             }
 
             jewelArm.setJewelArm(0);
@@ -126,19 +137,31 @@ public class BlueBack extends LinearOpMode {
         telemetry.update();
 
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 0.2){
-            driveTrain.move(0, -0.25,0);
+        while (opModeIsActive() && timer.seconds() < 0.2) {
+            driveTrain.move(0, -0.25, 0);
         }
 
-        while (opModeIsActive() && gyro.getHeading() < 87){
-            driveTrain.move(0, -0.25,0);
+        while (opModeIsActive() && gyro.getHeading() < 87) {
+            driveTrain.move(0, -0.25, 0);
         }
 
         pause(1);
 
+        /////////Loooooooooooooooooooooook Heeeeeeeeeeeeeeeeeeeeeeeeeeeerrrrrrrrrreeeeeeeeeeeee!!!!!!!!!!!
+        if (foundVuMark.equals(RelicRecoveryVuMark.RIGHT)) {
+            used = right;
+        } else if (foundVuMark.equals(RelicRecoveryVuMark.LEFT)) {
+            used = left;
+        } else if (foundVuMark.equals(RelicRecoveryVuMark.CENTER)) {
+            used = middle;
+        }else{
+            telemetry.addData("Fail", "FAAAAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIIILLLLLLLLLLLLLLLLLLLLLLL");
+            telemetry.update();
+        }
+
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 1.6){
-            driveTrain.move(0.5, 0,0);
+        while (opModeIsActive() && timer.seconds() < used) {
+            driveTrain.move(0.5, 0, 0);
         }
 
         pause(0.1);
@@ -146,36 +169,46 @@ public class BlueBack extends LinearOpMode {
         gyro.resetZAxisIntegrator();
 
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 0.5){
-            driveTrain.move(0, 0,0.5);
+        while (opModeIsActive() && timer.seconds() < 0.5) {
+            driveTrain.move(0, 0, 0.5);
         }
 
         pause(1);
 
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 1){
-            driveTrain.move(0, -0.25,0);
+        while (opModeIsActive() && timer.seconds() < 1) {
+            driveTrain.move(0, -0.25, 0);
         }
 
-        while (opModeIsActive() && gyro.getHeading() < 90){
-            driveTrain.move(0, -0.25,0);
+        while (opModeIsActive() && gyro.getHeading() < 95) {
+            driveTrain.move(0, -0.25, 0);
         }
 
         pause(1);
 
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < 1){
-            driveTrain.move(0.25, 0,0);
+        while (opModeIsActive() && timer.seconds() < 1.5) {
+            driveTrain.move(0.25, 0, 0);
         }
 
+        pause(1);
+
+        timer.reset();
+        while (opModeIsActive() && timer.seconds() < 0.649) {
+            glyphArm.clawOpen();
+            driveTrain.move(-0.25, 0, 0);
+        }
+
+        pause(1);
 
 
     }
-    public void  pause(double seconds){
+
+    public void pause(double seconds) {
         timer.reset();
-        while (opModeIsActive() && timer.seconds() < seconds){
-            driveTrain.move(0,0,0);
-            telemetry.addData("Wait",seconds);
+        while (opModeIsActive() && timer.seconds() < seconds) {
+            driveTrain.move(0, 0, 0);
+            telemetry.addData("Wait", seconds);
             telemetry.update();
         }
     }
