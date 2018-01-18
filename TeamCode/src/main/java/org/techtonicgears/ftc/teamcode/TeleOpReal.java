@@ -1,9 +1,9 @@
 package org.techtonicgears.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
+
 
 @TeleOp(name = "TeleOp: Real")
 public class TeleOpReal extends OpMode{
@@ -61,7 +61,7 @@ public class TeleOpReal extends OpMode{
         //divide offset by two to control turn
         offset = gamepad1.left_stick_x/2;
 
-        strafe = gamepad1.right_stick_x;
+        strafe = -gamepad1.right_stick_x;
         strafe = Range.clip(strafe, -0.5, 0.5);
 
         drive.move(speed, offset, strafe);
@@ -69,13 +69,16 @@ public class TeleOpReal extends OpMode{
         //GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
-            linearSp = 0;
             if (gamepad2.right_stick_y < 0) {
-                linearSp = -0.5;
+                linearSp = 0.5;
             } else if (gamepad2.right_stick_y > 0) {
-                linearSp = 0.3;
+                linearSp = -0.3;
             }
-
+            if(gamepad2.right_stick_y < 0){
+                linearSp = 0.5;
+            }else if(gamepad2.right_stick_y > 0){
+                linearSp = -0.3;
+            }
             glyphArm.moveUpOrDown(linearSp);
 
             if (gamepad2.left_trigger > 0) {
@@ -131,6 +134,7 @@ public class TeleOpReal extends OpMode{
         //arm.ArmMove(arm.relicArm1_ST+arm1Pos);
 
         //Sending messages
+        glyphArm.getPosition(telemetry);
         telemetry.addData("Power",speed);
         telemetry.addData("GlyphPower",linearSp);
         telemetry.addData("Arm1Pos", arm1Pos);

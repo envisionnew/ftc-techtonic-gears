@@ -15,6 +15,9 @@ public class DriveTrain {
     DcMotor rightFront   = null;
     DcMotor  leftBack  = null;
     DcMotor  rightBack  = null;
+    double speed;       /*/ Variables are also being defined on the bottom, which is why the speed is gray. /*/
+    double offset;      /*/ Variables are also being defined on the bottom, which is why the offset is gray. /*/
+    double strafe;      /*/ Variables are also being defined on the bottom, which is why the strafe is gray. /*/
     HardwareMap hwMap = null;
 
     public void init(HardwareMap Map) {
