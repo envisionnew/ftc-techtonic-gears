@@ -22,7 +22,7 @@ public class RedFront extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
     //color of the team
-    java.lang.String teamColor = "blue";
+    java.lang.String teamColor = "red";
     java.lang.String foundColor = null;
     ColorSensor colorSensor;
     //ModernRoboticsI2cRangeSensor rangeSensor;
@@ -34,7 +34,7 @@ public class RedFront extends LinearOpMode {
         double offset = 0.0;
         int heading = 0;
         int move = 0;
-        double armPower = 0.4;
+        double armPower = 0.45 ;
 
         //Initializing and performing init methods
         glyphArm.init(hardwareMap);
@@ -77,8 +77,8 @@ public class RedFront extends LinearOpMode {
         //drop jewel arm so color sensor can detect
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < 0.5) {
-            glyphArm.moveUpOrDown(armPower);
-            jewelArm.setJewelArm(0.65);
+            glyphArm.armUp(armPower);
+            jewelArm.setJewelArm(0);
             //returns which color the jewel is
             if (colorSensor.red() > colorSensor.blue()) {
                 foundColor = "red";
@@ -99,54 +99,58 @@ public class RedFront extends LinearOpMode {
         runtime.reset();
         if (teamColor == foundColor) {
             while (opModeIsActive() && runtime.seconds() < 0.1) {
-                glyphArm.moveUpOrDown(armPower);
-                jewelArm.setJewelArm(0.65);
+                glyphArm.armUp(armPower);
+                jewelArm.setJewelArm(0);
                 //moves and pushes the other jewel
+                driveTrain.move(0, 1, 0);
+            }
+            offset = -0.1;
+            driveTrain.move(0, 0, 0);
+            while (opModeIsActive() && runtime.seconds() < 0.4) {
+                glyphArm.armUp(armPower);
+                jewelArm.setJewelArm(1);
+            }
+            // if the color of the jewel is not the same as the color of the team
+        } else if (foundColor != null){
+            while (opModeIsActive() && runtime.seconds() < 0.1) {
+                glyphArm.armUp(armPower);
+                jewelArm.setJewelArm(0);
+                //moves and pushes off the same jewel it detects because colors dont match
                 driveTrain.move(0, -1, 0);
             }
             offset = 0.1;
             driveTrain.move(0, 0, 0);
             while (opModeIsActive() && runtime.seconds() < 0.4) {
-                glyphArm.moveUpOrDown(armPower);
-                jewelArm.setJewelArm(0);
-            }
-            // if the color of the jewel is not the same as the color of the team
-        } else if (foundColor != null){
-            while (opModeIsActive() && runtime.seconds() < 0.1) {
-                glyphArm.moveUpOrDown(armPower);
-                jewelArm.setJewelArm(0.65);
-                //moves and pushes off the same jewel it detects because colors dont match
-                driveTrain.move(0, 1, 0);
-            }
-
-            offset = -0.1;
-            driveTrain.move(0, 0, 0);
-            while (opModeIsActive() && runtime.seconds() < 0.4) {
-                jewelArm.setJewelArm(0);
+                jewelArm.setJewelArm(1);
             }
         }
 
         //get down from the board
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < 5.5) {
-            glyphArm.moveUpOrDown(armPower);
+        while (opModeIsActive() && runtime.seconds() < 3) {
+            glyphArm.armUp(armPower);
             heading = modernRoboticsI2cGyro.getHeading();
             if (heading == 0) offset = 0.0;
             driveTrain.move(0.1, offset, 0);
+            telemetry.addData("heading ", heading);
+            telemetry.addData("offset", offset);
+            telemetry.addData("vuMark ", vuMark);
+            telemetry.addData("foundColor ", foundColor);
+            telemetry.update();
         }
         driveTrain.move(0, 0, 0);
 
-        //turn left 90 degrees
+        //turn right 90 degrees
         runtime.reset();
         move = 0;
         offset = 0.0;
         while (opModeIsActive() && runtime.seconds() < 1.1) {
-            glyphArm.moveUpOrDown(armPower);
+            glyphArm.armUp(armPower);
             heading = modernRoboticsI2cGyro.getHeading();
-            if (heading >= 90 && !(heading >= 350) && move++ > 6) {
+            if (heading <= 270 && !(heading <= 90) && move++ > 6) {
                 break;
             }
-            offset -= 0.1;
+            offset += 0.1;
             driveTrain.move(0.1, offset, 0);
         }
         driveTrain.move(0.0, 0.0, 0);
@@ -156,61 +160,68 @@ public class RedFront extends LinearOpMode {
         //double Gap = 255;
         //while (opModeIsActive() && Gap > 30) {
         //Gap = rangeSensor.getDistance(DistanceUnit.CM);
-        while (opModeIsActive() && (runtime.seconds() < 3)) {
-            if (runtime.seconds() < 2.5) {
-                glyphArm.moveUpOrDown(armPower);
-            } else {
-                glyphArm.moveUpOrDown(armPower);
-            }
+        while (opModeIsActive() && (runtime.seconds() < 9)) {
+            glyphArm.armUp(armPower);
             heading = modernRoboticsI2cGyro.getHeading();
             offset = 0.0;
-            if (heading > 90) {
+            if (heading > 265) {
                 offset = 0.1;
             }
-            if (heading < 90 ){
+            if (heading < 265 ){
                 offset = -0.1;
             }
             // strafe based on vuMark
-            if (vuMark == RelicRecoveryVuMark.CENTER && (runtime.seconds() > 2.5) ) {
-                driveTrain.move(0.1, 0, 0.6);
+            if (vuMark == RelicRecoveryVuMark.CENTER && (runtime.seconds() > 5) && (runtime.seconds() < 6.5) ) {
+                driveTrain.move(0.1, 0, -0.3);
             } else
-            if (vuMark == RelicRecoveryVuMark.LEFT && (runtime.seconds() > 2.5) ){
-                driveTrain.move(0.2, 0, 0.8);
+            if (vuMark == RelicRecoveryVuMark.RIGHT && (runtime.seconds() > 6)  && (runtime.seconds() < 7.5) ) {
+                driveTrain.move(0.1, 0, -0.5);
             } else {
-                driveTrain.move(0.2, offset, 0);
+                driveTrain.move(0.1, offset, 0);
             }
             telemetry.addData("heading ", heading);
             telemetry.addData("offset", offset);
+            telemetry.addData("vuMark ", vuMark);
+            telemetry.addData("foundColor ", foundColor);
             // telemetry.addData("Gap", Gap);
             telemetry.update();
         }
 
         driveTrain.move(0.0, 0.0, 0);
 
+        // bring arm down
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 2)) {
+            glyphArm.armDown(armPower);
+        }
+
+        //claw open and move back
+        runtime.reset();
+        glyphArm.clawOpen();
+        while (opModeIsActive() && (runtime.seconds() < 2.5)) {
+            driveTrain.move(-0.1, 0, 0);
+        }
+        driveTrain.move(0.0, 0.0, 0);
+
         // push the glyph into crypto box
         runtime.reset();
-        //double Gap = 255;
-        //while (opModeIsActive() && Gap > 3) {
-        //Gap = rangeSensor.getDistance(DistanceUnit.CM);
+        glyphArm.clawClose();
         while (opModeIsActive() && (runtime.seconds() < 5)) {
             heading = modernRoboticsI2cGyro.getHeading();
             offset = 0.0;
-            if (heading > 90) {
+            if (heading > 265) {
                 offset = 0.1;
             }
-            if (heading < 90 ){
+            if (heading < 265){
                 offset = -0.1;
             }
             driveTrain.move(0.1, offset, 0);
         }
         driveTrain.move(0.0, 0.0, 0);
 
-        //claw open and move back
+        //move back
         runtime.reset();
-        glyphArm.clawOpen();
-        //while (opModeIsActive() && Gap > 3) {
-        //Gap = rangeSensor.getDistance(DistanceUnit.CM);
-        while (opModeIsActive() && (runtime.seconds() < 1)) {
+        while (opModeIsActive() && (runtime.seconds() < 3)) {
             driveTrain.move(-0.1, 0, 0);
         }
         driveTrain.move(0.0, 0.0, 0);

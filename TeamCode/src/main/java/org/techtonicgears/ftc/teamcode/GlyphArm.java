@@ -23,67 +23,65 @@ public class GlyphArm {
     int armMove = 0;
     double armPower = 0.0;
 
-public void init(HardwareMap Map) {
-    hwMap = Map;
+    public void init(HardwareMap Map) {
+        hwMap = Map;
 
     /*/ Naming all of the motors /*/
 
-    verticalMotor = hwMap.get(DcMotor.class, "glyph_arm");
-    leftHand = hwMap.get(Servo.class, "glyph_claw_l");
-    rightHand = hwMap.get(Servo.class, "glyph_claw_r");
+        verticalMotor = hwMap.get(DcMotor.class, "glyph_arm");
+        leftHand = hwMap.get(Servo.class, "glyph_claw_l");
+        rightHand = hwMap.get(Servo.class, "glyph_claw_r");
 
     /*/ Setting direction, position, and/or the power of the motors /*/
 
-    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
-    verticalMotor.setPower(0);
-    leftHand.setPosition(0.37);
-    rightHand.setPosition(0.68);
-}
+        verticalMotor.setDirection(DcMotor.Direction.FORWARD);
+        verticalMotor.setPower(0);
+    }
 
 
     /*/ Adding Telemetry Messages /*/
 
-public void getPosition(Telemetry telemetry){
-    telemetry.addData("L: " + leftHand.getPosition(), "R: " + rightHand.getPosition());
-    telemetry.update();
+    public void getPosition(Telemetry telemetry){
+        telemetry.addData("L: " + leftHand.getPosition(), "R: " + rightHand.getPosition());
+        telemetry.update();
 
-}
+    }
 
     /*/ Creating the motion for moving GlyphArm up and down. /*/
 
-public void moveUpOrDown(double power){
-    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
-    verticalMotor.setPower(power);
-}
-
-public void armUp(double power){
-    if ((++armMove % 5) == 0) {
-        armPower = power;
-    } else if (armPower > 0.1) {
-        armPower -= 0.1;
+    public void moveUpOrDown(double power){
+        verticalMotor.setDirection(DcMotor.Direction.FORWARD);
+        verticalMotor.setPower(power);
     }
-    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
-    verticalMotor.setPower(armPower);
-}
 
-public void armDown (double power) {
-    if (armPower != 0) armPower -= 0.025;
-    verticalMotor.setDirection(DcMotor.Direction.FORWARD);
-    verticalMotor.setPower(armPower);
-}
+    public void armUp(double power){
+        if ((++armMove % 5) == 0) {
+            armPower = power;
+        } else if (armPower > 0.1) {
+            armPower -= 0.1;
+        }
+        verticalMotor.setDirection(DcMotor.Direction.REVERSE);
+        verticalMotor.setPower(armPower);
+    }
+
+    public void armDown (double power) {
+        if (armPower != 0) armPower -= 0.025;
+        verticalMotor.setDirection(DcMotor.Direction.REVERSE);
+        verticalMotor.setPower(armPower);
+    }
 
     /*/ Creating the motion for closing the GlyphArm's claws. /*/
 
-public void clawOpen(){
-    leftHand.setPosition(leftOffset - clawOff);
-    rightHand.setPosition(rightOffset + clawOff);
-}
+    public void clawOpen(){
+        leftHand.setPosition(leftOffset - clawOff);
+        rightHand.setPosition(rightOffset + clawOff);
+    }
 
     /*/ Creating the motion for opening the GlyphArm's claws. /*/
 
-public void clawClose(){
-    leftHand.setPosition(leftOffset);
-    rightHand.setPosition(rightOffset);
+    public void clawClose(){
+        leftHand.setPosition(leftOffset);
+        rightHand.setPosition(rightOffset);
 
     }
 }

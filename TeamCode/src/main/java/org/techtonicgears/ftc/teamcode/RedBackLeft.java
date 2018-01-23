@@ -1,6 +1,7 @@
 package org.techtonicgears.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.HardwareDevice;
@@ -12,6 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 @Autonomous
+@Disabled
 public class RedBackLeft extends LinearOpMode {
     //defining each part for the robot
     DriveTrain driveTrain = new DriveTrain();

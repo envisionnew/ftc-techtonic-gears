@@ -1,6 +1,7 @@
 package org.techtonicgears.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -11,6 +12,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
     @Autonomous(name = "AutoRedFrontLeft")
+    @Disabled
     public class RedFrontLeft extends LinearOpMode {
 
         //creating all the parts of robot that will be needed
