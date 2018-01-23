@@ -69,7 +69,6 @@ public class TeleOpReal extends OpMode{
         //GlyphArm part
         // for moving up and down by about a glyph length
         if(armMode == false) {
-            linearSp = 0;
             if (gamepad2.right_stick_y < 0) {
                 linearSp = 0.5;
             } else if (gamepad2.right_stick_y > 0) {
@@ -80,7 +79,6 @@ public class TeleOpReal extends OpMode{
             }else if(gamepad2.right_stick_y > 0){
                 linearSp = -0.3;
             }
-
             glyphArm.moveUpOrDown(linearSp);
 
             if (gamepad2.left_trigger > 0) {
