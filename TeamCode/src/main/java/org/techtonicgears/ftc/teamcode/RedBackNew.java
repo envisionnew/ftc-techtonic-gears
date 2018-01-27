@@ -197,32 +197,43 @@ public class RedBackNew extends LinearOpMode {
             gyro.resetZAxisIntegrator();
             pause(1);
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 1) {
+
+            if (timer.seconds() < 1) {
+
                 driveTrain.move(0, 0.25, 0);
+
             }
-            if (opModeIsActive() && gyro.getHeading() > 270) {
+            if (gyro.getHeading() > 270) {
+
                 driveTrain.move(0, 0.25, 0);
+
             }
 
 
             pause(1);
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 1.3) {
+
+            if (timer.seconds() < 1.3) {
+
                 driveTrain.move(0.25, 0, 0);
 
             }
 
             pause(1);
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 0.5) {
+
+            if (timer.seconds() < 0.5) {
+
                 glyphArm.clawOpen();
                 driveTrain.move(-0.25, 0, 0);
+
             }
 
 
             pause(1);
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 1) {
+
+            if (timer.seconds() < 1) {
                 glyphArm.moveUpOrDown(0);
                 glyphArm.clawOpen();
                 driveTrain.move(-0.25, 0, 0);
@@ -230,21 +241,23 @@ public class RedBackNew extends LinearOpMode {
             pause(1);
 
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 0.5) {
+
+            if (timer.seconds() < 0.5) {
                 glyphArm.clawClose();
             }
 
             pause(1);
 
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 2) {
+
+            if (timer.seconds() < 2) {
                 driveTrain.move(0.25, 0, 0);
             }
 
             pause(1);
 
             timer.reset();
-            if (opModeIsActive() && timer.seconds() < 1) {
+            if (timer.seconds() < 1) {
                 driveTrain.move(-0.25, 0, 0);
             }
             pause(1);
