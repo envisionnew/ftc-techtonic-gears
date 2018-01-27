@@ -45,11 +45,13 @@ public class RedBackNew extends LinearOpMode {
         jewelArm.setJewelArm(1);
         gyro.calibrate();
         while (!isStopRequested() && gyro.isCalibrating()) {
-            telemetry.addData("Calibrating", "");
+            telemetry.addData("Calibrating. Please wait.", "");
             telemetry.update();
             sleep(50);
         }
-        //Waiting for the start button to be pressed
+
+        /*/ Wait for the Start Button to be Pressed /*/
+
         waitForStart();
         foundVuMark = vuForia.getVuMark();
         timer.reset();
@@ -75,12 +77,17 @@ public class RedBackNew extends LinearOpMode {
             telemetry.update();
             while (opModeIsActive() && timer.seconds() < 0.6) {
                 jewelArm.setJewelArm(0);
-                //moves and pushes the other jewel
+
+                /*/ Knocks other jewel off /*/
+
                 driveTrain.move(0, 0.25, 0);
             }
+
             jewelArm.setJewelArm(1);
-            // if the color of the jewel is not the same as the color of the team
             timer.reset();
+
+            /*/ End of Jewel Section for Red Jewel. Now moving to Cryptobox /*/
+
             while (opModeIsActive() && timer.seconds() < 0.2) {
                 driveTrain.move(0, -0.25, 0);
             }
@@ -89,23 +96,30 @@ public class RedBackNew extends LinearOpMode {
                 driveTrain.move(0, -0.25, 0);
                 jewelArm.setJewelArm(1);
             }
+
         } else if (foundColor != teamColor) {
             telemetry.addData("Red", "");
             telemetry.update();
             while (opModeIsActive() && timer.seconds() < 0.6) {
                 jewelArm.setJewelArm(0);
-                //moves and pushes off the same jewel it detects because colors dont match
+                /*/ Knocks the Same Jewel off since colors do not match /*/
                 driveTrain.move(0, -0.25, 0);
             }
             timer.reset();
-            while (opModeIsActive() && timer.seconds() < 0.2) {
-                driveTrain.move(0, 0.25, 0);
+
+            /*/ End of Jewel Section for Blue Jewel. Now moving to Cryptobox. /*/
+
+            while (opModeIsActive()) {
+                if (opModeIsActive() && timer.seconds() < 0.2) {
+                    driveTrain.move(0, 0.25, 0);
+                }
+                jewelArm.setJewelArm(1);
+                if (opModeIsActive() && gyro.getHeading() > 1) {
+                    driveTrain.move(0, 0.25, 0);
+                    }
+                }
             }
-            jewelArm.setJewelArm(1);
-            while (opModeIsActive() && gyro.getHeading() > 1) {
-                driveTrain.move(0, 0.25, 0);
-            }
-        }
+
         gyro.resetZAxisIntegrator();
         telemetry.addData("gyro", gyro.getHeading());
         telemetry.update();
